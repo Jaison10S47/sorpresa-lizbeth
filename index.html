@@ -1,0 +1,1276 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Para Lizbeth ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,600&family=Outfit:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --noche:#1b1033;
+  --ciruela:#3a1c5c;
+  --oro:#ffd27a;
+  --rosa:#ff6f91;
+  --menta:#7de2d1;
+  --texto:#fff4e6;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+[hidden]{
+  display:none!important;
+}
+
+html,
+body{
+  min-height:100%;
+  margin:0;
+}
+
+body{
+  background:
+    radial-gradient(
+      120% 90% at 50% 100%,
+      var(--ciruela),
+      var(--noche) 62%
+    );
+
+  color:var(--texto);
+  font-family:Outfit,system-ui,sans-serif;
+
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
+
+/* ESTRELLAS */
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+
+  background-image:
+    radial-gradient(1.5px 1.5px at 12% 18%,#fffc,transparent),
+    radial-gradient(1.5px 1.5px at 78% 12%,#fffc,transparent),
+    radial-gradient(1px 1px at 45% 30%,#fff9,transparent),
+    radial-gradient(1.5px 1.5px at 90% 40%,#fffc,transparent),
+    radial-gradient(1px 1px at 25% 55%,#fff9,transparent),
+    radial-gradient(1.5px 1.5px at 62% 70%,#fffc,transparent),
+    radial-gradient(1px 1px at 8% 82%,#fff9,transparent),
+    radial-gradient(1px 1px at 85% 88%,#fff9,transparent);
+
+  animation:brillo 4s ease-in-out infinite alternate;
+
+  pointer-events:none;
+}
+
+@keyframes brillo{
+  to{
+    opacity:.45;
+  }
+}
+
+
+/* CANVAS */
+
+#fx{
+  position:fixed;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+}
+
+
+/* CONTENIDO */
+
+main{
+  position:relative;
+  z-index:2;
+
+  min-height:100vh;
+
+  display:grid;
+  place-items:center;
+
+  text-align:center;
+
+  padding:30px 20px;
+}
+
+
+/* INTRO */
+
+#intro p{
+  font-family:Fraunces,Georgia,serif;
+  font-style:italic;
+
+  font-size:clamp(1.6rem,6vw,2.4rem);
+
+  margin:0 0 28px;
+
+  color:var(--oro);
+}
+
+
+#abrir{
+  background:none;
+  border:0;
+
+  cursor:pointer;
+
+  font-size:clamp(5rem,22vw,8rem);
+
+  line-height:1;
+
+  padding:12px;
+
+  border-radius:50%;
+
+  animation:late 1.6s ease-in-out infinite;
+
+  filter:drop-shadow(
+    0 0 28px #ff6f91aa
+  );
+}
+
+#abrir:focus-visible{
+  outline:3px solid var(--oro);
+  outline-offset:6px;
+}
+
+
+@keyframes late{
+  50%{
+    transform:scale(1.1) rotate(-4deg);
+  }
+}
+
+
+#intro small{
+  display:block;
+
+  margin-top:18px;
+
+  font-weight:300;
+
+  opacity:.75;
+}
+
+
+/* CUENTA REGRESIVA */
+
+#cd{
+  font-family:Fraunces,Georgia,serif;
+
+  font-style:italic;
+
+  font-size:clamp(6rem,30vw,14rem);
+
+  color:var(--rosa);
+
+  text-shadow:
+    0 0 40px #ff6f91;
+}
+
+
+#cd.pop{
+  animation:pop .95s ease-out;
+}
+
+
+@keyframes pop{
+
+  0%{
+    transform:scale(2.2);
+    opacity:0;
+  }
+
+  25%{
+    opacity:1;
+  }
+
+  100%{
+    transform:scale(.7);
+    opacity:.2;
+  }
+
+}
+
+
+/* FIESTA */
+
+#fiesta{
+  width:100%;
+  max-width:850px;
+
+  padding:30px 10px 70px;
+}
+
+
+.fecha{
+
+  margin:0 0 14px;
+
+  font-weight:300;
+
+  letter-spacing:.14em;
+
+  color:var(--menta);
+
+  opacity:0;
+
+  transition:
+    opacity 1.2s 1s;
+}
+
+
+h1{
+  margin:0;
+
+  font-family:Fraunces,Georgia,serif;
+
+  font-style:italic;
+
+  font-weight:600;
+}
+
+
+.l{
+  display:block;
+}
+
+
+#l1{
+
+  font-size:
+    clamp(1.7rem,6.5vw,2.8rem);
+
+  color:var(--oro);
+}
+
+
+#l2{
+
+  font-size:
+    clamp(3.4rem,17vw,9rem);
+
+  line-height:1.05;
+
+  color:var(--rosa);
+
+  text-shadow:
+    0 0 34px #ff6f9199;
+
+  overflow-wrap:anywhere;
+}
+
+
+.l span{
+
+  display:inline-block;
+
+  white-space:pre;
+
+  opacity:0;
+
+  transform:
+    translateY(50px)
+    rotate(8deg)
+    scale(.6);
+
+  transition:
+    opacity .6s,
+    transform .9s
+    cubic-bezier(.2,1.4,.4,1);
+
+  transition-delay:
+    calc(var(--i)*70ms);
+}
+
+
+.fiesta .l span{
+
+  opacity:1;
+
+  transform:none;
+}
+
+
+.fiesta .fecha{
+  opacity:1;
+}
+
+
+/* MENSAJE */
+
+#msg{
+
+  width:100%;
+
+  max-width:650px;
+
+  min-height:7em;
+
+  margin:35px auto 0;
+
+  padding:0 8px;
+
+  line-height:1.8;
+
+  font-weight:300;
+
+  font-size:
+    clamp(1rem,3.8vw,1.25rem);
+
+  white-space:pre-line;
+
+  overflow-wrap:anywhere;
+}
+
+
+#msg.escribiendo::after{
+
+  content:"";
+
+  display:inline-block;
+
+  width:2px;
+
+  height:1.1em;
+
+  margin-left:3px;
+
+  vertical-align:text-bottom;
+
+  background:var(--oro);
+
+  animation:
+    brillo .5s infinite alternate;
+}
+
+
+/* GLOBOS */
+
+.globo{
+
+  position:fixed;
+
+  bottom:-150px;
+
+  left:var(--x);
+
+  width:54px;
+
+  height:68px;
+
+  border-radius:
+    50% 50% 48% 48% /
+    58% 58% 42% 42%;
+
+  background:var(--c);
+
+  opacity:.88;
+
+  z-index:1;
+
+  pointer-events:none;
+
+  animation:
+    sube
+    var(--d)
+    linear
+    var(--r)
+    infinite;
+}
+
+
+.globo::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+
+  top:100%;
+
+  width:1px;
+
+  height:58px;
+
+  background:#fff6;
+}
+
+
+@keyframes sube{
+
+  to{
+    transform:
+      translate(
+        var(--dx),
+        -135vh
+      );
+  }
+
+}
+
+
+/* CELULARES */
+
+@media(max-width:600px){
+
+  main{
+    padding:25px 15px;
+  }
+
+  #fiesta{
+    padding-top:20px;
+  }
+
+  #msg{
+    font-size:1.05rem;
+    line-height:1.75;
+    padding:0 10px;
+  }
+
+}
+
+
+/* REDUCIR ANIMACIONES */
+
+@media(prefers-reduced-motion:reduce){
+
+  #abrir,
+  body::before{
+    animation:none;
+  }
+
+  .globo{
+    animation-duration:30s;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<canvas id="fx"></canvas>
+
+
+<main>
+
+
+  <!-- INTRODUCCIÓN -->
+
+  <section id="intro">
+
+    <p>
+      Hay algo esperándote...
+    </p>
+
+    <button
+      id="abrir"
+      aria-label="Abrir el regalo">
+
+      🎁
+
+    </button>
+
+    <small>
+      Toca el regalo para abrirlo ❤️
+    </small>
+
+  </section>
+
+
+  <!-- CUENTA REGRESIVA -->
+
+  <div
+    id="cd"
+    aria-live="assertive">
+  </div>
+
+
+  <!-- MENSAJE DE CUMPLEAÑOS -->
+
+  <section
+    id="fiesta"
+    hidden>
+
+    <p class="fecha">
+      30 DE OCTUBRE
+    </p>
+
+
+    <h1>
+
+      <span
+        class="l"
+        id="l1">
+      </span>
+
+      <span
+        class="l"
+        id="l2">
+      </span>
+
+    </h1>
+
+
+    <p id="msg"></p>
+
+  </section>
+
+
+</main>
+
+
+
+<script>
+
+
+/* =========================================
+   DATOS DE LA PERSONA
+   ========================================= */
+
+const NOMBRE = 'Lizbeth';
+
+
+const MENSAJE = `¡Feliz cumpleaños, preciosa! ❤️🎂
+
+Espero de todo corazón que hoy tengas un día muy bonito, rodeada de mucho cariño, sonrisas y personas que te quieren.
+
+Deseo que este nuevo año de vida te traiga muchísima felicidad, momentos inolvidables y que todos tus sueños poco a poco se hagan realidad.
+
+Que la vida te devuelva todo lo bonito que das a los demás, porque eres una persona muy especial y mereces que te pasen cosas maravillosas. 🥺❤️
+
+Te quiero muchísimo y espero que este nuevo año sea uno de los más bonitos para ti.
+
+¡Disfruta muchísimo tu día! 🎉💕`;
+
+
+/* =========================================
+   CONFIGURACIÓN
+   ========================================= */
+
+const $ = id =>
+  document.getElementById(id);
+
+
+const reducir =
+  matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
+
+
+const colores = [
+
+  '#ffd27a',
+  '#ff6f91',
+  '#7de2d1',
+  '#fff4e6',
+  '#b48cff'
+
+];
+
+
+const azar = a =>
+  a[Math.random() * a.length | 0];
+
+
+
+/* =========================================
+   CREAR LETRAS DEL TÍTULO
+   ========================================= */
+
+function letras(el, txt, base){
+
+  [...txt].forEach((ch,i)=>{
+
+    const s =
+      document.createElement('span');
+
+    s.textContent = ch;
+
+    s.style.setProperty(
+      '--i',
+      base + i
+    );
+
+    el.appendChild(s);
+
+  });
+
+}
+
+
+letras(
+  $('l1'),
+  '¡Feliz cumpleaños!',
+  0
+);
+
+
+letras(
+  $('l2'),
+  NOMBRE,
+  18
+);
+
+
+document.title =
+  'Para ' + NOMBRE;
+
+
+
+/* =========================================
+   CANVAS
+   ========================================= */
+
+const c = $('fx');
+
+const x =
+  c.getContext('2d');
+
+
+let W,
+    H,
+    parts = [],
+    rockets = [],
+    conf = [],
+    iniciado = false;
+
+
+
+function medir(){
+
+  W = c.width =
+    innerWidth;
+
+  H = c.height =
+    innerHeight;
+
+}
+
+
+addEventListener(
+  'resize',
+  medir
+);
+
+
+medir();
+
+
+
+/* =========================================
+   LÍNEAS
+   ========================================= */
+
+function linea(
+  x1,
+  y1,
+  x2,
+  y2,
+  col,
+  ancho
+){
+
+  x.strokeStyle = col;
+
+  x.lineWidth = ancho;
+
+  x.lineCap = 'round';
+
+  x.beginPath();
+
+  x.moveTo(x1,y1);
+
+  x.lineTo(x2,y2);
+
+  x.stroke();
+
+}
+
+
+
+/* =========================================
+   COHETES
+   ========================================= */
+
+function cohete(){
+
+  rockets.push({
+
+    x:
+      W *
+      (.12 +
+      Math.random() * .76),
+
+    y:H,
+
+    vy:
+      -(H * .012 +
+      Math.random() * 4),
+
+    ty:
+      H *
+      (.12 +
+      Math.random() * .38),
+
+    col:
+      azar(colores)
+
+  });
+
+}
+
+
+
+/* =========================================
+   FUEGOS ARTIFICIALES
+   ========================================= */
+
+function estallido(
+  px,
+  py,
+  col
+){
+
+  const n =
+    70 +
+    Math.random() * 40 | 0;
+
+  const v =
+    2 +
+    Math.random() * 2.5;
+
+
+  for(
+    let i=0;
+    i<n;
+    i++
+  ){
+
+    const a =
+      Math.PI * 2 *
+      i / n;
+
+    const s =
+      v *
+      (.6 +
+      Math.random() * .7);
+
+
+    parts.push({
+
+      x:px,
+      y:py,
+
+      px,
+      py,
+
+      vx:
+        Math.cos(a) * s,
+
+      vy:
+        Math.sin(a) * s,
+
+      life:1,
+
+      col
+
+    });
+
+  }
+
+}
+
+
+
+/* =========================================
+   CONFETI
+   ========================================= */
+
+function confeti(){
+
+  for(
+    let i=0;
+    i <
+    (reducir ? 30 : 110);
+    i++
+  ){
+
+    conf.push({
+
+      x:
+        Math.random() * W,
+
+      y:
+        -20 -
+        Math.random() *
+        H * .5,
+
+      vy:
+        1 +
+        Math.random() * 2.5,
+
+      t:
+        Math.random() * 6,
+
+      r:
+        Math.random() * 6,
+
+      vr:
+        (Math.random() - .5) * .2,
+
+      col:
+        azar(colores)
+
+    });
+
+  }
+
+}
+
+
+
+/* =========================================
+   ANIMACIÓN
+   ========================================= */
+
+function bucle(){
+
+  x.clearRect(
+    0,
+    0,
+    W,
+    H
+  );
+
+
+  x.globalAlpha = 1;
+
+
+  rockets =
+    rockets.filter(r=>{
+
+      const py = r.y;
+
+      r.y += r.vy;
+
+
+      linea(
+        r.x,
+        py,
+        r.x,
+        r.y,
+        r.col,
+        3
+      );
+
+
+      if(
+        r.y <= r.ty
+      ){
+
+        estallido(
+          r.x,
+          r.y,
+          r.col
+        );
+
+        return false;
+
+      }
+
+
+      return true;
+
+    });
+
+
+
+  parts =
+    parts.filter(p=>{
+
+      p.px = p.x;
+      p.py = p.y;
+
+
+      p.vx *= .985;
+
+      p.vy =
+        p.vy * .985 +
+        .045;
+
+
+      p.x += p.vx;
+
+      p.y += p.vy;
+
+
+      p.life -= .011;
+
+
+      x.globalAlpha =
+        Math.max(
+          p.life,
+          0
+        );
+
+
+      linea(
+        p.px,
+        p.py,
+        p.x,
+        p.y,
+        p.col,
+        2.2
+      );
+
+
+      return p.life > 0;
+
+    });
+
+
+
+  x.globalAlpha = 1;
+
+
+  conf =
+    conf.filter(f=>{
+
+      f.t += .04;
+
+      f.r += f.vr;
+
+      f.y += f.vy;
+
+      f.x +=
+        Math.sin(f.t) *
+        1.2;
+
+
+      x.save();
+
+
+      x.translate(
+        f.x,
+        f.y
+      );
+
+
+      x.rotate(f.r);
+
+
+      x.fillStyle =
+        f.col;
+
+
+      x.fillRect(
+        -4,
+        -6,
+        8,
+        12
+      );
+
+
+      x.restore();
+
+
+      return f.y <
+        H + 20;
+
+    });
+
+
+  requestAnimationFrame(
+    bucle
+  );
+
+}
+
+
+
+/* =========================================
+   GLOBOS
+   ========================================= */
+
+function globos(){
+
+  if(reducir)
+    return;
+
+
+  for(
+    let i=0;
+    i<14;
+    i++
+  ){
+
+    const g =
+      document.createElement(
+        'div'
+      );
+
+
+    g.className =
+      'globo';
+
+
+    g.style.cssText =
+
+      `--x:${Math.random()*94}vw;
+       --c:${azar(colores)};
+       --d:${9+Math.random()*7}s;
+       --r:${Math.random()*6}s;
+       --dx:${(Math.random()-.5)*90}px`;
+
+
+    document.body.appendChild(g);
+
+  }
+
+}
+
+
+
+/* =========================================
+   ESCRIBIR MENSAJE
+   ========================================= */
+
+function escribir(){
+
+  const m =
+    $('msg');
+
+
+  let i = 0;
+
+
+  m.classList.add(
+    'escribiendo'
+  );
+
+
+  const t =
+    setInterval(()=>{
+
+      m.textContent =
+        MENSAJE.slice(
+          0,
+          ++i
+        );
+
+
+      if(
+        i >= MENSAJE.length
+      ){
+
+        clearInterval(t);
+
+        m.classList.remove(
+          'escribiendo'
+        );
+
+      }
+
+    },25);
+
+}
+
+
+
+/* =========================================
+   INICIAR FIESTA
+   ========================================= */
+
+function empezar(){
+
+  iniciado = true;
+
+
+  $('fiesta').hidden =
+    false;
+
+
+  requestAnimationFrame(()=>{
+
+    requestAnimationFrame(()=>{
+
+      document.body.classList.add(
+        'fiesta'
+      );
+
+    });
+
+  });
+
+
+  /* Primeros fuegos */
+
+  for(
+    let i=0;
+    i<6;
+    i++
+  ){
+
+    setTimeout(
+      cohete,
+      i * 260
+    );
+
+  }
+
+
+  /* Confeti */
+
+  confeti();
+
+
+  /* Fuegos continuos */
+
+  setInterval(
+    cohete,
+    reducir
+      ? 2200
+      : 800
+  );
+
+
+  /* Más confeti */
+
+  setInterval(
+    confeti,
+    7000
+  );
+
+
+  /* Globos */
+
+  globos();
+
+
+  /* Mensaje */
+
+  setTimeout(
+    escribir,
+    2400
+  );
+
+}
+
+
+
+/* =========================================
+   BOTÓN DEL REGALO
+   ========================================= */
+
+$('abrir').onclick = ()=>{
+
+  $('intro').hidden =
+    true;
+
+
+  let n = 3;
+
+
+  const cd =
+    $('cd');
+
+
+  const tic = ()=>{
+
+    if(n > 0){
+
+      cd.textContent =
+        n--;
+
+
+      cd.classList.remove(
+        'pop'
+      );
+
+
+      void cd.offsetWidth;
+
+
+      cd.classList.add(
+        'pop'
+      );
+
+
+      setTimeout(
+        tic,
+        950
+      );
+
+
+    }else{
+
+      cd.textContent =
+        '';
+
+
+      empezar();
+
+    }
+
+  };
+
+
+  tic();
+
+};
+
+
+
+/* =========================================
+   TOCAR LA PANTALLA
+   ========================================= */
+
+document.addEventListener(
+  'pointerdown',
+  e=>{
+
+    if(iniciado){
+
+      estallido(
+        e.clientX,
+        e.clientY,
+        azar(colores)
+      );
+
+    }
+
+  }
+);
+
+
+
+/* =========================================
+   INICIAR ANIMACIÓN
+   ========================================= */
+
+bucle();
+
+</script>
+
+</body>
+</html>
+```

@@ -43,7 +43,11 @@ body{
     );
 
   color:var(--texto);
-  font-family:Outfit,system-ui,sans-serif;
+
+  font-family:
+    Outfit,
+    system-ui,
+    sans-serif;
 
   overflow-x:hidden;
   overflow-y:auto;
@@ -55,12 +59,15 @@ body{
 
 
 /* =========================================
-   ESTRELLAS
+   ESTRELLAS DEL FONDO
    ========================================= */
 
 body::before{
+
   content:"";
+
   position:fixed;
+
   inset:0;
 
   background-image:
@@ -73,42 +80,57 @@ body::before{
     radial-gradient(1px 1px at 8% 82%,#fff9,transparent),
     radial-gradient(1px 1px at 85% 88%,#fff9,transparent);
 
-  animation:brillo 4s ease-in-out infinite alternate;
+  animation:
+    brillo
+    4s
+    ease-in-out
+    infinite
+    alternate;
 
   pointer-events:none;
+
   z-index:0;
 }
 
 @keyframes brillo{
+
   to{
     opacity:.45;
   }
+
 }
 
 
 /* =========================================
-   CANVAS
+   CANVAS DE FUEGOS ARTIFICIALES
    ========================================= */
 
 #fx{
+
   position:fixed;
+
   inset:0;
+
   z-index:10;
+
   pointer-events:none;
 }
 
 
 /* =========================================
-   CONTENIDO
+   CONTENIDO PRINCIPAL
    ========================================= */
 
 main{
+
   position:relative;
+
   z-index:2;
 
   min-height:100vh;
 
   display:grid;
+
   place-items:center;
 
   text-align:center;
@@ -118,27 +140,38 @@ main{
 
 
 /* =========================================
-   INTRO
+   INTRODUCCIÓN
    ========================================= */
 
 #intro p{
-  font-family:Fraunces,Georgia,serif;
+
+  font-family:
+    Fraunces,
+    Georgia,
+    serif;
+
   font-style:italic;
 
-  font-size:clamp(1.6rem,6vw,2.4rem);
+  font-size:
+    clamp(1.6rem,6vw,2.4rem);
 
-  margin:0 0 28px;
+  margin:
+    0 0 28px;
 
   color:var(--oro);
 }
 
+
 #abrir{
+
   background:none;
+
   border:0;
 
   cursor:pointer;
 
-  font-size:clamp(5rem,22vw,8rem);
+  font-size:
+    clamp(5rem,22vw,8rem);
 
   line-height:1;
 
@@ -146,25 +179,44 @@ main{
 
   border-radius:50%;
 
-  animation:late 1.6s ease-in-out infinite;
+  animation:
+    late
+    1.6s
+    ease-in-out
+    infinite;
 
-  filter:drop-shadow(
-    0 0 28px #ff6f91aa
-  );
+  filter:
+    drop-shadow(
+      0 0 28px #ff6f91aa
+    );
 }
 
+
 #abrir:focus-visible{
-  outline:3px solid var(--oro);
+
+  outline:
+    3px solid
+    var(--oro);
+
   outline-offset:6px;
 }
 
+
 @keyframes late{
+
   50%{
-    transform:scale(1.1) rotate(-4deg);
+
+    transform:
+      scale(1.1)
+      rotate(-4deg);
+
   }
+
 }
 
+
 #intro small{
+
   display:block;
 
   margin-top:18px;
@@ -180,11 +232,16 @@ main{
    ========================================= */
 
 #cd{
-  font-family:Fraunces,Georgia,serif;
+
+  font-family:
+    Fraunces,
+    Georgia,
+    serif;
 
   font-style:italic;
 
-  font-size:clamp(6rem,30vw,14rem);
+  font-size:
+    clamp(6rem,30vw,14rem);
 
   color:var(--rosa);
 
@@ -192,15 +249,24 @@ main{
     0 0 40px #ff6f91;
 }
 
+
 #cd.pop{
-  animation:pop .95s ease-out;
+
+  animation:
+    pop
+    .95s
+    ease-out;
 }
+
 
 @keyframes pop{
 
   0%{
+
     transform:scale(2.2);
+
     opacity:0;
+
   }
 
   25%{
@@ -208,8 +274,11 @@ main{
   }
 
   100%{
+
     transform:scale(.7);
+
     opacity:.2;
+
   }
 
 }
@@ -220,14 +289,22 @@ main{
    ========================================= */
 
 #fiesta{
+
   width:100%;
+
   max-width:850px;
 
-  padding:30px 10px 70px;
+  padding:
+    30px
+    10px
+    70px;
 }
 
+
 .fecha{
-  margin:0 0 14px;
+
+  margin:
+    0 0 14px;
 
   font-weight:300;
 
@@ -238,31 +315,44 @@ main{
   opacity:0;
 
   transition:
-    opacity 1.2s 1s;
+    opacity
+    1.2s
+    1s;
 }
 
+
 h1{
+
   margin:0;
 
-  font-family:Fraunces,Georgia,serif;
+  font-family:
+    Fraunces,
+    Georgia,
+    serif;
 
   font-style:italic;
 
   font-weight:600;
 }
 
+
 .l{
+
   display:block;
 }
 
+
 #l1{
+
   font-size:
     clamp(1.7rem,6.5vw,2.8rem);
 
   color:var(--oro);
 }
 
+
 #l2{
+
   font-size:
     clamp(3.4rem,17vw,9rem);
 
@@ -275,6 +365,7 @@ h1{
 
   overflow-wrap:anywhere;
 }
+
 
 .l span{
 
@@ -298,30 +389,41 @@ h1{
     calc(var(--i)*70ms);
 }
 
+
 .fiesta .l span{
+
   opacity:1;
+
   transform:none;
 }
 
+
 .fiesta .fecha{
+
   opacity:1;
 }
 
 
 /* =========================================
-   MENSAJE
+   MENSAJE PRINCIPAL
    ========================================= */
 
 #msg{
+
   width:100%;
 
   max-width:650px;
 
   min-height:7em;
 
-  margin:35px auto 0;
+  margin:
+    35px
+    auto
+    0;
 
-  padding:0 8px;
+  padding:
+    0
+    8px;
 
   line-height:1.8;
 
@@ -334,6 +436,7 @@ h1{
 
   overflow-wrap:anywhere;
 }
+
 
 #msg.escribiendo::after{
 
@@ -352,23 +455,30 @@ h1{
   background:var(--oro);
 
   animation:
-    brillo .5s infinite alternate;
+    brillo
+    .5s
+    infinite
+    alternate;
 }
 
 
 /* =========================================
-   BOTÓN GENERAL
+   BOTONES ROMÁNTICOS
    ========================================= */
 
 .boton-romantico{
 
   display:inline-block;
 
-  margin-top:30px;
+  margin-top:35px;
 
-  padding:14px 25px;
+  padding:
+    14px
+    25px;
 
-  border:1px solid #ffffff35;
+  border:
+    1px solid
+    #ffffff35;
 
   border-radius:50px;
 
@@ -381,7 +491,9 @@ h1{
 
   color:var(--texto);
 
-  font-family:Outfit,sans-serif;
+  font-family:
+    Outfit,
+    sans-serif;
 
   font-size:1rem;
 
@@ -396,8 +508,12 @@ h1{
     background .3s;
 }
 
+
 .boton-romantico:hover{
-  transform:translateY(-4px) scale(1.03);
+
+  transform:
+    translateY(-4px)
+    scale(1.03);
 
   box-shadow:
     0 0 35px #ff6f9160;
@@ -412,144 +528,6 @@ h1{
 
 
 /* =========================================
-   GALERÍA DE RECUERDOS
-   ========================================= */
-
-#galeria{
-
-  width:100%;
-
-  max-width:900px;
-
-  margin:80px auto 0;
-
-  padding:20px 0 40px;
-}
-
-.titulo-seccion{
-
-  font-family:Fraunces,Georgia,serif;
-
-  font-style:italic;
-
-  color:var(--oro);
-
-  font-size:
-    clamp(1.8rem,6vw,2.8rem);
-
-  margin:0 0 10px;
-}
-
-.subtitulo-seccion{
-
-  margin:0 auto 30px;
-
-  max-width:600px;
-
-  line-height:1.7;
-
-  font-weight:300;
-
-  opacity:.8;
-}
-
-
-/* CONTENEDOR DESLIZABLE */
-
-.galeria-scroll{
-
-  display:flex;
-
-  gap:20px;
-
-  overflow-x:auto;
-
-  scroll-snap-type:x mandatory;
-
-  padding:15px 10px 25px;
-
-  scrollbar-width:none;
-
-  -webkit-overflow-scrolling:touch;
-}
-
-.galeria-scroll::-webkit-scrollbar{
-  display:none;
-}
-
-
-/* TARJETA */
-
-.recuerdo{
-
-  flex:0 0 min(78vw,310px);
-
-  scroll-snap-align:center;
-
-  border-radius:25px;
-
-  overflow:hidden;
-
-  background:#ffffff0d;
-
-  border:1px solid #ffffff20;
-
-  box-shadow:
-    0 15px 45px #00000045;
-
-  transform:rotate(-1deg);
-
-  transition:
-    transform .4s,
-    box-shadow .4s;
-}
-
-.recuerdo:nth-child(even){
-  transform:rotate(1deg);
-}
-
-.recuerdo:hover{
-  transform:
-    translateY(-8px)
-    rotate(0deg);
-
-  box-shadow:
-    0 20px 55px #00000060;
-}
-
-.recuerdo img{
-
-  display:block;
-
-  width:100%;
-
-  height:330px;
-
-  object-fit:cover;
-
-  background:
-    linear-gradient(
-      135deg,
-      #3a1c5c,
-      #1b1033
-    );
-}
-
-.recuerdo p{
-
-  margin:0;
-
-  padding:16px 15px 20px;
-
-  font-size:.95rem;
-
-  line-height:1.5;
-
-  color:#fff8ef;
-}
-
-
-/* =========================================
    SEGUNDA SORPRESA
    ========================================= */
 
@@ -559,9 +537,14 @@ h1{
 
   max-width:700px;
 
-  margin:50px auto 0;
+  margin:
+    90px
+    auto
+    0;
 
-  padding:45px 20px;
+  padding:
+    55px
+    20px;
 
   border-radius:30px;
 
@@ -569,15 +552,24 @@ h1{
     radial-gradient(
       circle at top,
       #ff6f9130,
-      transparent 60%
+      transparent 65%
     );
 
-  border:1px solid #ffffff18;
+  border:
+    1px solid
+    #ffffff18;
+
+  box-shadow:
+    0 15px 60px #00000030;
 }
+
 
 #espera{
 
-  font-family:Fraunces,Georgia,serif;
+  font-family:
+    Fraunces,
+    Georgia,
+    serif;
 
   font-style:italic;
 
@@ -592,11 +584,15 @@ h1{
   margin:0;
 }
 
+
 #textoSegunda{
 
   max-width:580px;
 
-  margin:25px auto 0;
+  margin:
+    25px
+    auto
+    0;
 
   line-height:1.8;
 
@@ -606,12 +602,14 @@ h1{
 
   opacity:0;
 
-  transform:translateY(20px);
+  transform:
+    translateY(20px);
 
   transition:
     opacity 1s,
     transform 1s;
 }
+
 
 #textoSegunda.mostrar{
 
@@ -633,9 +631,10 @@ h1{
 
   min-height:100vh;
 
-  margin-top:80px;
+  margin-top:90px;
 
-  margin-left:calc(50% - 50vw);
+  margin-left:
+    calc(50% - 50vw);
 
   overflow:hidden;
 
@@ -652,10 +651,8 @@ h1{
       #150b2b 65%,
       #080512
     );
-
-  transition:
-    opacity 1.5s;
 }
+
 
 #nocheFinal::before{
 
@@ -680,6 +677,7 @@ h1{
     0 0 90px #fff5d633;
 }
 
+
 #nocheFinal::after{
 
   content:"";
@@ -698,6 +696,11 @@ h1{
 
   background:#150b2b;
 }
+
+
+/* =========================================
+   ESTRELLAS DEL FINAL
+   ========================================= */
 
 .estrellas-finales{
 
@@ -718,8 +721,17 @@ h1{
     radial-gradient(2px 2px at 92% 80%,#fff,transparent);
 
   animation:
-    brillo 3s ease-in-out infinite alternate;
+    brillo
+    3s
+    ease-in-out
+    infinite
+    alternate;
 }
+
+
+/* =========================================
+   MENSAJE FINAL
+   ========================================= */
 
 .contenido-final{
 
@@ -729,10 +741,13 @@ h1{
 
   max-width:720px;
 
-  padding:80px 25px;
+  padding:
+    80px
+    25px;
 
   text-align:center;
 }
+
 
 .corazon-grande{
 
@@ -745,22 +760,35 @@ h1{
     );
 
   animation:
-    latido-corazon 1.7s
-    ease-in-out infinite;
+    latido-corazon
+    1.7s
+    ease-in-out
+    infinite;
 }
+
 
 @keyframes latido-corazon{
 
   50%{
-    transform:scale(1.12);
+
+    transform:
+      scale(1.12);
+
   }
+
 }
+
 
 .contenido-final h2{
 
-  margin:20px 0;
+  margin:
+    20px
+    0;
 
-  font-family:Fraunces,Georgia,serif;
+  font-family:
+    Fraunces,
+    Georgia,
+    serif;
 
   font-style:italic;
 
@@ -769,6 +797,7 @@ h1{
 
   color:var(--oro);
 }
+
 
 .contenido-final p{
 
@@ -790,6 +819,7 @@ h1{
   position:fixed;
 
   left:0;
+
   top:0;
 
   z-index:20;
@@ -811,6 +841,7 @@ h1{
     ease-out
     forwards;
 }
+
 
 @keyframes subir-corazon{
 
@@ -845,6 +876,7 @@ h1{
       rotate(var(--rot));
 
   }
+
 }
 
 
@@ -884,6 +916,7 @@ h1{
     infinite;
 }
 
+
 .globo::after{
 
   content:"";
@@ -901,14 +934,17 @@ h1{
   background:#fff6;
 }
 
+
 @keyframes sube{
 
   to{
+
     transform:
       translate(
         var(--dx),
         -135vh
       );
+
   }
 
 }
@@ -921,33 +957,73 @@ h1{
 @media(max-width:600px){
 
   main{
-    padding:25px 15px;
+
+    padding:
+      25px
+      15px;
+
   }
+
 
   #fiesta{
+
     padding-top:20px;
+
   }
+
 
   #msg{
+
     font-size:1.05rem;
+
     line-height:1.75;
-    padding:0 10px;
+
+    padding:
+      0
+      10px;
+
   }
 
-  .recuerdo img{
-    height:300px;
+
+  #segunda{
+
+    margin-top:70px;
+
+    padding:
+      45px
+      15px;
+
   }
+
 
   #nocheFinal::before{
+
     width:150px;
+
     height:150px;
+
     right:8%;
+
   }
 
+
   #nocheFinal::after{
+
     width:150px;
+
     height:150px;
+
     right:3%;
+
+  }
+
+
+  .contenido-final{
+
+    padding:
+      70px
+      20px;
+
   }
 
 }
@@ -963,11 +1039,16 @@ h1{
   body::before,
   .corazon-grande,
   .estrellas-finales{
+
     animation:none;
+
   }
 
+
   .globo{
+
     animation-duration:30s;
+
   }
 
 }
@@ -1021,12 +1102,13 @@ h1{
 
 
   <!-- =====================================
-       MENSAJE DE CUMPLEAÑOS
+       FIESTA Y MENSAJE PRINCIPAL
        ===================================== -->
 
   <section
     id="fiesta"
     hidden>
+
 
     <p class="fecha">
       30 DE OCTUBRE
@@ -1049,117 +1131,6 @@ h1{
 
 
     <p id="msg"></p>
-
-
-    <!-- BOTÓN PARA IR A LOS RECUERDOS -->
-
-    <button
-      class="boton-romantico"
-      id="btnRecuerdos">
-
-      📸 Ver nuestros recuerdos
-
-    </button>
-
-
-    <!-- =====================================
-         GALERÍA
-         ===================================== -->
-
-    <section id="galeria">
-
-      <h2 class="titulo-seccion">
-        Algunos recuerdos 💖
-      </h2>
-
-      <p class="subtitulo-seccion">
-        Porque hay momentos que merecen quedarse
-        guardados para siempre. 🥰
-      </p>
-
-
-      <div class="galeria-scroll">
-
-
-        <!-- FOTO 1 -->
-
-        <article class="recuerdo">
-
-          <img
-            src="recuerdo1.jpg"
-            alt="Recuerdo especial 1">
-
-          <p>
-            Un momento bonito que siempre
-            quiero recordar. ❤️
-          </p>
-
-        </article>
-
-
-        <!-- FOTO 2 -->
-
-        <article class="recuerdo">
-
-          <img
-            src="recuerdo2.jpg"
-            alt="Recuerdo especial 2">
-
-          <p>
-            Un recuerdo que hace especial
-            nuestra historia. 💕
-          </p>
-
-        </article>
-
-
-        <!-- FOTO 3 -->
-
-        <article class="recuerdo">
-
-          <img
-            src="recuerdo3.jpg"
-            alt="Recuerdo especial 3">
-
-          <p>
-            De esos momentos que se quedan
-            en el corazón. 🌹
-          </p>
-
-        </article>
-
-
-        <!-- FOTO 4 -->
-
-        <article class="recuerdo">
-
-          <img
-            src="recuerdo4.jpg"
-            alt="Recuerdo especial 4">
-
-          <p>
-            Y ojalá podamos crear muchos
-            recuerdos más. ✨
-          </p>
-
-        </article>
-
-
-      </div>
-
-
-      <p
-        style="
-          font-size:.85rem;
-          opacity:.6;
-          margin-top:5px;
-        ">
-
-        Desliza las tarjetas para ver los recuerdos →
-
-      </p>
-
-    </section>
 
 
     <!-- =====================================
@@ -1199,7 +1170,7 @@ h1{
 
 
     <!-- =====================================
-         MODO NOCTURNO Y MENSAJE FINAL
+         MODO NOCTURNO + MENSAJE FINAL
          ===================================== -->
 
     <section id="nocheFinal">
@@ -1260,7 +1231,7 @@ h1{
 
 
 /* =========================================
-   DATOS DE LA PERSONA
+   DATOS
    ========================================= */
 
 const NOMBRE = 'Lizbeth';
@@ -1305,25 +1276,28 @@ const colores = [
 
 
 const azar = a =>
-  a[Math.random() * a.length | 0];
+  a[
+    Math.random() * a.length | 0
+  ];
 
 
 /* =========================================
-   CREAR LETRAS DEL TÍTULO
+   LETRAS DEL TÍTULO
    ========================================= */
 
-function letras(el, txt, base){
+function letras(el,txt,base){
 
   [...txt].forEach((ch,i)=>{
 
     const s =
       document.createElement('span');
 
-    s.textContent = ch;
+    s.textContent =
+      ch;
 
     s.style.setProperty(
       '--i',
-      base + i
+      base+i
     );
 
     el.appendChild(s);
@@ -1355,7 +1329,8 @@ document.title =
    CANVAS
    ========================================= */
 
-const c = $('fx');
+const c =
+  $('fx');
 
 const x =
   c.getContext('2d');
@@ -1363,18 +1338,20 @@ const x =
 
 let W,
     H,
-    parts = [],
-    rockets = [],
-    conf = [],
-    iniciado = false;
+    parts=[],
+    rockets=[],
+    conf=[],
+    iniciado=false;
 
 
 function medir(){
 
-  W = c.width =
+  W =
+    c.width =
     innerWidth;
 
-  H = c.height =
+  H =
+    c.height =
     innerHeight;
 
 }
@@ -1402,17 +1379,26 @@ function linea(
   ancho
 ){
 
-  x.strokeStyle = col;
+  x.strokeStyle =
+    col;
 
-  x.lineWidth = ancho;
+  x.lineWidth =
+    ancho;
 
-  x.lineCap = 'round';
+  x.lineCap =
+    'round';
 
   x.beginPath();
 
-  x.moveTo(x1,y1);
+  x.moveTo(
+    x1,
+    y1
+  );
 
-  x.lineTo(x2,y2);
+  x.lineTo(
+    x2,
+    y2
+  );
 
   x.stroke();
 
@@ -1429,19 +1415,25 @@ function cohete(){
 
     x:
       W *
-      (.12 +
-      Math.random() * .76),
+      (
+        .12 +
+        Math.random()*.76
+      ),
 
     y:H,
 
     vy:
-      -(H * .012 +
-      Math.random() * 4),
+      -(
+        H*.012 +
+        Math.random()*4
+      ),
 
     ty:
       H *
-      (.12 +
-      Math.random() * .38),
+      (
+        .12 +
+        Math.random()*.38
+      ),
 
     col:
       azar(colores)
@@ -1463,11 +1455,11 @@ function estallido(
 
   const n =
     70 +
-    Math.random() * 40 | 0;
+    Math.random()*40 | 0;
 
   const v =
     2 +
-    Math.random() * 2.5;
+    Math.random()*2.5;
 
 
   for(
@@ -1477,28 +1469,31 @@ function estallido(
   ){
 
     const a =
-      Math.PI * 2 *
-      i / n;
+      Math.PI*2*i/n;
 
     const s =
       v *
-      (.6 +
-      Math.random() * .7);
+      (
+        .6 +
+        Math.random()*.7
+      );
 
 
     parts.push({
 
       x:px,
+
       y:py,
 
       px,
+
       py,
 
       vx:
-        Math.cos(a) * s,
+        Math.cos(a)*s,
 
       vy:
-        Math.sin(a) * s,
+        Math.sin(a)*s,
 
       life:1,
 
@@ -1519,33 +1514,38 @@ function confeti(){
 
   for(
     let i=0;
-    i <
-    (reducir ? 30 : 110);
+    i<
+    (
+      reducir
+      ? 30
+      : 110
+    );
     i++
   ){
 
     conf.push({
 
       x:
-        Math.random() * W,
+        Math.random()*W,
 
       y:
         -20 -
-        Math.random() *
-        H * .5,
+        Math.random()*H*.5,
 
       vy:
         1 +
-        Math.random() * 2.5,
+        Math.random()*2.5,
 
       t:
-        Math.random() * 6,
+        Math.random()*6,
 
       r:
-        Math.random() * 6,
+        Math.random()*6,
 
       vr:
-        (Math.random() - .5) * .2,
+        (
+          Math.random()-.5
+        )*.2,
 
       col:
         azar(colores)
@@ -1558,7 +1558,7 @@ function confeti(){
 
 
 /* =========================================
-   ANIMACIÓN
+   ANIMACIÓN DEL CANVAS
    ========================================= */
 
 function bucle(){
@@ -1571,15 +1571,17 @@ function bucle(){
   );
 
 
-  x.globalAlpha = 1;
+  x.globalAlpha=1;
 
 
   rockets =
     rockets.filter(r=>{
 
-      const py = r.y;
+      const py =
+        r.y;
 
-      r.y += r.vy;
+      r.y +=
+        r.vy;
 
 
       linea(
@@ -1593,7 +1595,7 @@ function bucle(){
 
 
       if(
-        r.y <= r.ty
+        r.y<=r.ty
       ){
 
         estallido(
@@ -1615,23 +1617,30 @@ function bucle(){
   parts =
     parts.filter(p=>{
 
-      p.px = p.x;
-      p.py = p.y;
+      p.px =
+        p.x;
+
+      p.py =
+        p.y;
 
 
-      p.vx *= .985;
+      p.vx *=
+        .985;
 
       p.vy =
-        p.vy * .985 +
+        p.vy*.985 +
         .045;
 
 
-      p.x += p.vx;
+      p.x +=
+        p.vx;
 
-      p.y += p.vy;
+      p.y +=
+        p.vy;
 
 
-      p.life -= .011;
+      p.life -=
+        .011;
 
 
       x.globalAlpha =
@@ -1651,26 +1660,28 @@ function bucle(){
       );
 
 
-      return p.life > 0;
+      return p.life>0;
 
     });
 
 
-  x.globalAlpha = 1;
+  x.globalAlpha=1;
 
 
   conf =
     conf.filter(f=>{
 
-      f.t += .04;
+      f.t +=
+        .04;
 
-      f.r += f.vr;
+      f.r +=
+        f.vr;
 
-      f.y += f.vy;
+      f.y +=
+        f.vy;
 
       f.x +=
-        Math.sin(f.t) *
-        1.2;
+        Math.sin(f.t)*1.2;
 
 
       x.save();
@@ -1682,7 +1693,9 @@ function bucle(){
       );
 
 
-      x.rotate(f.r);
+      x.rotate(
+        f.r
+      );
 
 
       x.fillStyle =
@@ -1700,8 +1713,8 @@ function bucle(){
       x.restore();
 
 
-      return f.y <
-        H + 20;
+      return f.y<
+        H+20;
 
     });
 
@@ -1748,7 +1761,9 @@ function globos(){
        --dx:${(Math.random()-.5)*90}px`;
 
 
-    document.body.appendChild(g);
+    document.body.appendChild(
+      g
+    );
 
   }
 
@@ -1764,8 +1779,7 @@ function escribir(){
   const m =
     $('msg');
 
-
-  let i = 0;
+  let i=0;
 
 
   m.classList.add(
@@ -1784,7 +1798,7 @@ function escribir(){
 
 
       if(
-        i >= MENSAJE.length
+        i>=MENSAJE.length
       ){
 
         clearInterval(t);
@@ -1805,12 +1819,12 @@ function escribir(){
    ========================================= */
 
 function corazones(
-  cantidad = 10,
-  xInicial = innerWidth / 2,
-  yInicial = innerHeight / 2
+  cantidad=10,
+  xInicial=innerWidth/2,
+  yInicial=innerHeight/2
 ){
 
-  const simbolos = [
+  const simbolos=[
     '❤️',
     '💕',
     '💖',
@@ -1860,13 +1874,13 @@ function corazones(
 
     corazon.style.setProperty(
       '--size',
-      `${18 + Math.random()*25}px`
+      `${18+Math.random()*25}px`
     );
 
 
     corazon.style.setProperty(
       '--duracion',
-      `${1.5 + Math.random()*1.5}s`
+      `${1.5+Math.random()*1.5}s`
     );
 
 
@@ -1897,10 +1911,10 @@ function corazones(
 
 function empezar(){
 
-  iniciado = true;
+  iniciado=true;
 
 
-  $('fiesta').hidden =
+  $('fiesta').hidden=
     false;
 
 
@@ -1917,7 +1931,7 @@ function empezar(){
   });
 
 
-  /* Primeros fuegos */
+  /* Fuegos iniciales */
 
   for(
     let i=0;
@@ -1927,7 +1941,7 @@ function empezar(){
 
     setTimeout(
       cohete,
-      i * 260
+      i*260
     );
 
   }
@@ -1969,12 +1983,12 @@ function empezar(){
   );
 
 
-  /* Corazones de bienvenida */
+  /* Corazones */
 
   setTimeout(
     ()=>{
       corazones(
-        16,
+        18,
         innerWidth/2,
         innerHeight/2
       );
@@ -1986,10 +2000,10 @@ function empezar(){
 
 
 /* =========================================
-   BOTÓN DEL REGALO
+   ABRIR REGALO
    ========================================= */
 
-$('abrir').onclick = ()=>{
+$('abrir').onclick=()=>{
 
   corazones(
     15,
@@ -1998,22 +2012,22 @@ $('abrir').onclick = ()=>{
   );
 
 
-  $('intro').hidden =
+  $('intro').hidden=
     true;
 
 
-  let n = 3;
+  let n=3;
 
 
   const cd =
     $('cd');
 
 
-  const tic = ()=>{
+  const tic=()=>{
 
-    if(n > 0){
+    if(n>0){
 
-      cd.textContent =
+      cd.textContent=
         n--;
 
 
@@ -2035,10 +2049,9 @@ $('abrir').onclick = ()=>{
         950
       );
 
-
     }else{
 
-      cd.textContent =
+      cd.textContent=
         '';
 
 
@@ -2055,47 +2068,35 @@ $('abrir').onclick = ()=>{
 
 
 /* =========================================
-   BOTÓN GALERÍA
-   ========================================= */
-
-$('btnRecuerdos').onclick = ()=>{
-
-  corazones(
-    12,
-    innerWidth/2,
-    innerHeight*.55
-  );
-
-
-  $('galeria').scrollIntoView({
-    behavior:'smooth',
-    block:'start'
-  });
-
-};
-
-
-/* =========================================
    SEGUNDA SORPRESA
    ========================================= */
 
-$('btnSorpresa').onclick = e=>{
+$('btnSorpresa').onclick=e=>{
 
   const rect =
-    e.currentTarget.getBoundingClientRect();
+    e.currentTarget
+    .getBoundingClientRect();
 
+
+  /* Corazones desde el botón */
 
   corazones(
-    25,
-    rect.left + rect.width/2,
-    rect.top + rect.height/2
+    28,
+    rect.left +
+    rect.width/2,
+    rect.top +
+    rect.height/2
   );
 
 
-  $('textoSegunda').classList.add(
-    'mostrar'
-  );
+  /* Mostrar mensaje */
 
+  $('textoSegunda')
+    .classList
+    .add('mostrar');
+
+
+  /* Cambiar botón */
 
   e.currentTarget.textContent =
     '💖 Sorpresa abierta';
@@ -2109,12 +2110,15 @@ $('btnSorpresa').onclick = e=>{
     '.7';
 
 
+  /* Ir al cielo nocturno */
+
   setTimeout(()=>{
 
-    $('nocheFinal').scrollIntoView({
-      behavior:'smooth',
-      block:'start'
-    });
+    $('nocheFinal')
+      .scrollIntoView({
+        behavior:'smooth',
+        block:'start'
+      });
 
   },2200);
 

@@ -1165,6 +1165,12 @@ h1{
         cosas bonitas que me gusta ver en ti. 🥺💕
 
       </p>
+      <button
+  class="boton-romantico"
+  id="btnCerrarSorpresa"
+  hidden>
+  💗 Cerrar sorpresa
+</button>
 
     </section>
 
@@ -2092,6 +2098,7 @@ $('btnSorpresa').onclick=e=>{
   /* Mostrar mensaje */
 
   $('textoSegunda')
+    $('btnCerrarSorpresa').hidden = false;
     .classList
     .add('mostrar');
 
@@ -2153,7 +2160,22 @@ document.addEventListener(
 /* =========================================
    INICIAR ANIMACIÓN
    ========================================= */
+$('btnCerrarSorpresa').onclick=()=>{
 
+  $('textoSegunda')
+    .classList
+    .remove('mostrar');
+
+  $('btnCerrarSorpresa').hidden = true;
+
+  $('btnSorpresa').textContent =
+    '🎁 Abrir la segunda sorpresa';
+
+  $('btnSorpresa').disabled = false;
+
+  $('btnSorpresa').style.opacity = '1';
+
+};
 bucle();
 
 </script>

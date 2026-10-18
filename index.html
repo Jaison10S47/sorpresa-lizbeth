@@ -35,7 +35,7 @@ body{
 }
 
 /* =========================================
-   FONDO NOCTURNO GENERAL CON LUNA Y ESTRELLAS
+   FONDO NOCTURNO GENERAL
    ========================================= */
 body{
   background:
@@ -58,34 +58,23 @@ body{
   position:relative;
 }
 
-/* Luna en el fondo general */
+/* MEDIA LUNA LIMPIA (SIN CÍRCULO NEGRO) */
 body::before{
   content:"";
   position:fixed;
-  width:220px;
-  height:220px;
+  width:160px;
+  height:160px;
   top:8%;
   right:10%;
   border-radius:50%;
-  background:#fff5d6;
-  box-shadow:
-    0 0 35px #fff5d688,
-    0 0 90px #fff5d633;
+  box-shadow: -22px 14px 0 0 #fff5d6;
+  filter: drop-shadow(0 0 20px rgba(255, 245, 214, 0.45));
   pointer-events:none;
   z-index:0;
 }
 
 body::after{
-  content:"";
-  position:fixed;
-  width:220px;
-  height:220px;
-  top:4%;
-  right:5%;
-  border-radius:50%;
-  background:#150b2b;
-  pointer-events:none;
-  z-index:0;
+  display:none !important;
 }
 
 [hidden]{
@@ -659,7 +648,7 @@ h1{
 
 
 /* =========================================
-   MENSAJE FINAL (SECCIÓN ADAPTADA)
+   MENSAJE FINAL
    ========================================= */
 
 #nocheFinal{
@@ -946,22 +935,13 @@ h1{
 
   body::before{
 
-    width:150px;
+    width:110px;
 
-    height:150px;
+    height:110px;
 
     right:8%;
 
-  }
-
-
-  body::after{
-
-    width:150px;
-
-    height:150px;
-
-    right:3%;
+    box-shadow: -16px 10px 0 0 #fff5d6;
 
   }
 

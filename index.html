@@ -34,12 +34,16 @@ body{
   margin:0;
 }
 
+/* =========================================
+   FONDO NOCTURNO GENERAL CON LUNA Y ESTRELLAS
+   ========================================= */
 body{
   background:
     radial-gradient(
-      120% 90% at 50% 100%,
-      var(--ciruela),
-      var(--noche) 62%
+      circle at 50% 20%,
+      #4a216f,
+      #150b2b 65%,
+      #080512
     );
 
   color:var(--texto);
@@ -51,6 +55,37 @@ body{
 
   overflow-x:hidden;
   overflow-y:auto;
+  position:relative;
+}
+
+/* Luna en el fondo general */
+body::before{
+  content:"";
+  position:fixed;
+  width:220px;
+  height:220px;
+  top:8%;
+  right:10%;
+  border-radius:50%;
+  background:#fff5d6;
+  box-shadow:
+    0 0 35px #fff5d688,
+    0 0 90px #fff5d633;
+  pointer-events:none;
+  z-index:0;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  width:220px;
+  height:220px;
+  top:4%;
+  right:5%;
+  border-radius:50%;
+  background:#150b2b;
+  pointer-events:none;
+  z-index:0;
 }
 
 [hidden]{
@@ -62,27 +97,31 @@ body{
    ESTRELLAS DEL FONDO
    ========================================= */
 
-body::before{
-
-  content:"";
+.estrellas-finales{
 
   position:fixed;
 
   inset:0;
 
   background-image:
-    radial-gradient(1.5px 1.5px at 12% 18%,#fffc,transparent),
-    radial-gradient(1.5px 1.5px at 78% 12%,#fffc,transparent),
+    radial-gradient(2px 2px at 10% 20%,#fff,transparent),
+    radial-gradient(2px 2px at 25% 35%,#fff,transparent),
+    radial-gradient(1.5px 1.5px at 38% 15%,#fff,transparent),
+    radial-gradient(2px 2px at 55% 28%,#fff,transparent),
+    radial-gradient(1.5px 1.5px at 72% 15%,#fff,transparent),
+    radial-gradient(2px 2px at 85% 45%,#fff,transparent),
+    radial-gradient(1.5px 1.5px at 15% 65%,#fff,transparent),
+    radial-gradient(2px 2px at 42% 75%,#fff,transparent),
+    radial-gradient(1.5px 1.5px at 70% 70%,#fff,transparent),
+    radial-gradient(2px 2px at 92% 80%,#fff,transparent),
+    radial-gradient(1px 1px at 12% 18%,#fffc,transparent),
     radial-gradient(1px 1px at 45% 30%,#fff9,transparent),
-    radial-gradient(1.5px 1.5px at 90% 40%,#fffc,transparent),
     radial-gradient(1px 1px at 25% 55%,#fff9,transparent),
-    radial-gradient(1.5px 1.5px at 62% 70%,#fffc,transparent),
-    radial-gradient(1px 1px at 8% 82%,#fff9,transparent),
-    radial-gradient(1px 1px at 85% 88%,#fff9,transparent);
+    radial-gradient(1px 1px at 62% 70%,#fffc,transparent);
 
   animation:
     brillo
-    4s
+    3s
     ease-in-out
     infinite
     alternate;
@@ -620,7 +659,7 @@ h1{
 
 
 /* =========================================
-   MODO NOCTURNO ROMÁNTICO
+   MENSAJE FINAL (SECCIÓN ADAPTADA)
    ========================================= */
 
 #nocheFinal{
@@ -629,109 +668,18 @@ h1{
 
   width:100vw;
 
-  min-height:100vh;
-
   margin-top:90px;
 
   margin-left:
     calc(50% - 50vw);
-
-  overflow:hidden;
 
   display:flex;
 
   align-items:center;
 
   justify-content:center;
-
-  background:
-    radial-gradient(
-      circle at 50% 80%,
-      #4a216f,
-      #150b2b 65%,
-      #080512
-    );
 }
 
-
-#nocheFinal::before{
-
-  content:"";
-
-  position:absolute;
-
-  width:220px;
-
-  height:220px;
-
-  top:12%;
-
-  right:13%;
-
-  border-radius:50%;
-
-  background:#fff5d6;
-
-  box-shadow:
-    0 0 35px #fff5d688,
-    0 0 90px #fff5d633;
-}
-
-
-#nocheFinal::after{
-
-  content:"";
-
-  position:absolute;
-
-  width:220px;
-
-  height:220px;
-
-  top:8%;
-
-  right:8%;
-
-  border-radius:50%;
-
-  background:#150b2b;
-}
-
-
-/* =========================================
-   ESTRELLAS DEL FINAL
-   ========================================= */
-
-.estrellas-finales{
-
-  position:absolute;
-
-  inset:0;
-
-  background-image:
-    radial-gradient(2px 2px at 10% 20%,#fff,transparent),
-    radial-gradient(2px 2px at 25% 35%,#fff,transparent),
-    radial-gradient(1.5px 1.5px at 38% 15%,#fff,transparent),
-    radial-gradient(2px 2px at 55% 28%,#fff,transparent),
-    radial-gradient(1.5px 1.5px at 72% 15%,#fff,transparent),
-    radial-gradient(2px 2px at 85% 45%,#fff,transparent),
-    radial-gradient(1.5px 1.5px at 15% 65%,#fff,transparent),
-    radial-gradient(2px 2px at 42% 75%,#fff,transparent),
-    radial-gradient(1.5px 1.5px at 70% 70%,#fff,transparent),
-    radial-gradient(2px 2px at 92% 80%,#fff,transparent);
-
-  animation:
-    brillo
-    3s
-    ease-in-out
-    infinite
-    alternate;
-}
-
-
-/* =========================================
-   MENSAJE FINAL
-   ========================================= */
 
 .contenido-final{
 
@@ -996,7 +944,7 @@ h1{
   }
 
 
-  #nocheFinal::before{
+  body::before{
 
     width:150px;
 
@@ -1007,7 +955,7 @@ h1{
   }
 
 
-  #nocheFinal::after{
+  body::after{
 
     width:150px;
 
@@ -1036,9 +984,8 @@ h1{
 @media(prefers-reduced-motion:reduce){
 
   #abrir,
-  body::before,
-  .corazon-grande,
-  .estrellas-finales{
+  .estrellas-finales,
+  .corazon-grande{
 
     animation:none;
 
@@ -1059,7 +1006,7 @@ h1{
 
 <body>
 
-
+<div class="estrellas-finales"></div>
 <canvas id="fx"></canvas>
 
 
@@ -1067,8 +1014,8 @@ h1{
 
 
   <!-- =====================================
-       INTRODUCCIÓN
-       ===================================== -->
+        INTRODUCCIÓN
+        ===================================== -->
 
   <section id="intro">
 
@@ -1092,8 +1039,8 @@ h1{
 
 
   <!-- =====================================
-       CUENTA REGRESIVA
-       ===================================== -->
+        CUENTA REGRESIVA
+        ===================================== -->
 
   <div
     id="cd"
@@ -1102,8 +1049,8 @@ h1{
 
 
   <!-- =====================================
-       FIESTA Y MENSAJE PRINCIPAL
-       ===================================== -->
+        FIESTA Y MENSAJE PRINCIPAL
+        ===================================== -->
 
   <section
     id="fiesta"
@@ -1134,8 +1081,8 @@ h1{
 
 
     <!-- =====================================
-         SEGUNDA SORPRESA
-         ===================================== -->
+          SEGUNDA SORPRESA
+          ===================================== -->
 
     <section id="segunda">
 
@@ -1176,12 +1123,10 @@ h1{
 
 
     <!-- =====================================
-         MODO NOCTURNO + MENSAJE FINAL
-         ===================================== -->
+          MENSAJE FINAL
+          ===================================== -->
 
     <section id="nocheFinal">
-
-      <div class="estrellas-finales"></div>
 
 
       <div class="contenido-final">
@@ -1761,10 +1706,10 @@ function globos(){
     g.style.cssText =
 
       `--x:${Math.random()*94}vw;
-       --c:${azar(colores)};
-       --d:${9+Math.random()*7}s;
-       --r:${Math.random()*6}s;
-       --dx:${(Math.random()-.5)*90}px`;
+        --c:${azar(colores)};
+        --d:${9+Math.random()*7}s;
+        --r:${Math.random()*6}s;
+        --dx:${(Math.random()-.5)*90}px`;
 
 
     document.body.appendChild(

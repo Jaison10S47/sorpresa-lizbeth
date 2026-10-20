@@ -345,7 +345,7 @@ h1 {
 
 <main>
   <section id="intro">
-    <p>Hay algo esperándote...</p>
+   <p id="textoEscrito"></p>
     <button id="abrir" aria-label="Abrir el regalo">🎁</button>
     <small>Toca el regalo para abrirlo ❤️</small>
   </section>
@@ -353,7 +353,7 @@ h1 {
   <section id="cuenta" aria-live="polite"></section>
 
   <section id="fiesta">
-    <p class="fecha">30 DE OCTUBRE</p>
+    <p class="fecha">31 DE OCTUBRE</p>
     <h1>¡Feliz cumpleaños, Lizbeth! ❤️</h1>
 
     <p id="mensajePrincipal">¡Feliz cumpleaños, preciosa! ❤️🎂
@@ -434,6 +434,18 @@ window.addEventListener('resize', ajustarCanvas);
 ajustarCanvas();
 
 function lanzarFuegos(x = Math.random() * ancho, y = Math.random() * alto * .45 + 50) {
+  // Diez explosiones adicionales con forma de estrella
+function lanzarEstrellasExtra() {
+  for (let i = 0; i < 10; i++) {
+    setTimeout(() => {
+      const x = Math.random() * ancho;
+      const y = Math.random() * alto * 0.65 + 40;
+
+      // Una explosión de partículas en cada posición
+      lanzarFuegos(x, y);
+    }, i * 350);
+  }
+}
   const colores = ['#ffd27a', '#ff6f91', '#fff4e6', '#b48cff', '#7de2d1'];
 
   for (let i = 0; i < 65; i++) {
@@ -488,7 +500,20 @@ function crearCorazones(cantidad = 12, x = innerWidth / 2, y = innerHeight / 2) 
     setTimeout(() => corazon.remove(), 3000);
   }
 }
+// Texto inicial que aparece letra por letra
+const textoInicial = "Hay algo esperándote...";
+const elementoTexto = document.getElementById("textoEscrito");
+let indiceTexto = 0;
 
+function escribirTexto() {
+  if (indiceTexto < textoInicial.length) {
+    elementoTexto.textContent += textoInicial.charAt(indiceTexto);
+    indiceTexto++;
+    setTimeout(escribirTexto, 100);
+  }
+}
+
+escribirTexto();
 abrir.addEventListener('click', () => {
   intro.style.display = 'none';
   cuenta.style.display = 'flex';
@@ -511,6 +536,7 @@ abrir.addEventListener('click', () => {
       for (let i = 0; i < 5; i++) {
         setTimeout(() => lanzarFuegos(), i * 400);
       }
+      lanzarEstrellasExtra();
 
       setInterval(() => {
         if (iniciado) lanzarFuegos();

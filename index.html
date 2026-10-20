@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,13 +17,9 @@
   --texto: #fff4e6;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -133,13 +130,16 @@ h1 {
 
 #mensajePrincipal {
   max-width: 680px;
+  width: 100%;
   margin: 30px auto 0;
+  padding: 0 12px;
   font-size: clamp(1rem, 4vw, 1.2rem);
   line-height: 1.9;
   white-space: pre-line;
+  overflow-wrap: break-word;
+  text-align: center;
 }
 
-/* CIELO DE ESTRELLAS: MISMO FONDO QUE TODA LA PÁGINA */
 #cieloLizbeth {
   position: relative;
   width: 100%;
@@ -212,7 +212,6 @@ h1 {
   text-shadow: 0 0 20px var(--rosa);
 }
 
-/* LOS MENSAJES TAMBIÉN USAN EL FONDO GENERAL */
 #mensajeEstrella {
   width: min(100%, 680px);
   min-height: 120px;
@@ -318,25 +317,12 @@ h1 {
   }
 
   .estrella {
-  width: clamp(43px, 17vw, 70px);
-}
+    width: clamp(43px, 17vw, 70px);
+  }
 
-#mensajeEstrella {
-  padding: 20px 5px;
-}
-
-#mensajePrincipal {
-  max-width: 680px;
-  width: 100%;
-  margin: 30px auto 0;
-  padding: 0 12px;
-  box-sizing: border-box;
-  text-align: center;
-  white-space: pre-line;
-  overflow-wrap: break-word;
-  line-height: 1.9;
-  transform: none;
-  animation: none;
+  #mensajeEstrella {
+    padding: 20px 5px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -354,7 +340,7 @@ h1 {
 
 <main>
   <section id="intro">
-   <p id="textoEscrito"></p>
+    <p id="textoEscrito"></p>
     <button id="abrir" aria-label="Abrir el regalo">🎁</button>
     <small>Toca el regalo para abrirlo ❤️</small>
   </section>
@@ -364,18 +350,7 @@ h1 {
   <section id="fiesta">
     <p class="fecha">31 DE OCTUBRE</p>
     <h1>¡Feliz cumpleaños, Lizbeth! ❤️</h1>
-
-    <p id="mensajePrincipal">¡Feliz cumpleaños, preciosa! ❤️🎂
-
-Espero de todo corazón que hoy tengas un día muy bonito, rodeada de mucho cariño, sonrisas y personas que te quieren.
-
-Deseo que este nuevo año de vida te traiga muchísima felicidad, momentos inolvidables y que todos tus sueños poco a poco se hagan realidad.
-
-Que la vida te devuelva todo lo bonito que das a los demás, porque eres una persona muy especial y mereces que te pasen cosas maravillosas. 🥺❤️
-
-Te quiero muchísimo y espero que este nuevo año sea uno de los más bonitos para ti.
-
-¡Disfruta muchísimo tu día! 🎉💕</p>
+    <p id="mensajePrincipal"></p>
 
     <section id="cieloLizbeth">
       <p class="cielo-intro">Hay cinco estrellas que guardan algo que quiero decirte...</p>
@@ -443,18 +418,6 @@ window.addEventListener('resize', ajustarCanvas);
 ajustarCanvas();
 
 function lanzarFuegos(x = Math.random() * ancho, y = Math.random() * alto * .45 + 50) {
-  // Diez explosiones adicionales con forma de estrella
-function lanzarEstrellasExtra() {
-  for (let i = 0; i < 10; i++) {
-    setTimeout(() => {
-      const x = Math.random() * ancho;
-      const y = Math.random() * alto * 0.65 + 40;
-
-      // Una explosión de partículas en cada posición
-      lanzarFuegos(x, y);
-    }, i * 350);
-  }
-}
   const colores = ['#ffd27a', '#ff6f91', '#fff4e6', '#b48cff', '#7de2d1'];
 
   for (let i = 0; i < 65; i++) {
@@ -468,6 +431,17 @@ function lanzarEstrellasExtra() {
       vida: 1,
       color: colores[Math.floor(Math.random() * colores.length)]
     });
+  }
+}
+
+// Diez explosiones adicionales
+function lanzarEstrellasExtra() {
+  for (let i = 0; i < 10; i++) {
+    setTimeout(() => {
+      const x = Math.random() * ancho;
+      const y = Math.random() * alto * 0.65 + 40;
+      lanzarFuegos(x, y);
+    }, i * 350);
   }
 }
 
@@ -509,6 +483,7 @@ function crearCorazones(cantidad = 12, x = innerWidth / 2, y = innerHeight / 2) 
     setTimeout(() => corazon.remove(), 3000);
   }
 }
+
 // Texto inicial que aparece letra por letra
 const textoInicial = "Hay algo esperándote...";
 const elementoTexto = document.getElementById("textoEscrito");
@@ -523,6 +498,36 @@ function escribirTexto() {
 }
 
 escribirTexto();
+
+// ESTE ES EL ÚNICO MENSAJE QUE APARECE LETRA POR LETRA
+const textoCumpleanos = `¡Feliz cumpleaños, preciosa! ❤️🎂
+
+Espero de todo corazón que hoy tengas un día muy bonito, rodeada de mucho cariño, sonrisas y personas que te quieren.
+
+Deseo que este nuevo año de vida te traiga muchísima felicidad, momentos inolvidables y que todos tus sueños poco a poco se hagan realidad.
+
+Que la vida te devuelva todo lo bonito que das a los demás, porque eres una persona muy especial y mereces que te pasen cosas maravillosas.❤️
+
+Te quiero muchísimo y espero que este nuevo año sea uno de los más bonitos para ti.
+
+¡Disfruta muchísimo tu día! 🎉💕`;
+
+function escribirCumpleanos() {
+  const elemento = document.getElementById('mensajePrincipal');
+  let posicion = 0;
+  elemento.textContent = '';
+
+  function escribirLetra() {
+    if (posicion < textoCumpleanos.length) {
+      elemento.textContent += textoCumpleanos.charAt(posicion);
+      posicion++;
+      setTimeout(escribirLetra, 35);
+    }
+  }
+
+  escribirLetra();
+}
+
 abrir.addEventListener('click', () => {
   intro.style.display = 'none';
   cuenta.style.display = 'flex';
@@ -541,10 +546,13 @@ abrir.addEventListener('click', () => {
       fiesta.style.display = 'block';
       iniciado = true;
 
+      escribirCumpleanos();
       crearCorazones(20);
+
       for (let i = 0; i < 5; i++) {
         setTimeout(() => lanzarFuegos(), i * 400);
       }
+
       lanzarEstrellasExtra();
 
       setInterval(() => {
@@ -601,8 +609,14 @@ botonesEstrella.forEach(boton => {
 
     if (descubiertas.size === 5) {
       document.getElementById('finalCielo').classList.add('visible');
+
       const rect = boton.getBoundingClientRect();
-      crearCorazones(18, rect.left + rect.width / 2, rect.top + rect.height / 2);
+      crearCorazones(
+        18,
+        rect.left + rect.width / 2,
+        rect.top + rect.height / 2
+      );
+
       for (let i = 0; i < 3; i++) {
         setTimeout(() => lanzarFuegos(), i * 300);
       }

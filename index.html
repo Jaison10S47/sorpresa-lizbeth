@@ -1,1174 +1,362 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para Lizbeth ❤️</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-
-:root{
-  --noche:#1b1033;
-  --ciruela:#3a1c5c;
-  --oro:#ffd27a;
-  --rosa:#ff6f91;
-  --menta:#7de2d1;
-  --texto:#fff4e6;
+:root {
+  --oro: #ffd27a;
+  --rosa: #ff6f91;
+  --texto: #fff4e6;
 }
 
-*{
-  box-sizing:border-box;
+* {
+  box-sizing: border-box;
 }
 
-html{
-  scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-html,
-body{
-  min-height:100%;
-  margin:0;
-}
-
-/* =========================================
-   FONDO NOCTURNO GENERAL
-   ========================================= */
-body{
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--texto);
+  font-family: 'Outfit', sans-serif;
+  text-align: center;
   background:
-    radial-gradient(
-      circle at 50% 20%,
-      #4a216f,
-      #150b2b 65%,
-      #080512
-    );
-
-  color:var(--texto);
-
-  font-family:
-    Outfit,
-    system-ui,
-    sans-serif;
-
-  overflow-x:hidden;
-  overflow-y:auto;
-  position:relative;
+    radial-gradient(ellipse at 50% 100%, #9b3d82 0%, transparent 45%),
+    radial-gradient(ellipse at 5% 75%, #71316f 0%, transparent 35%),
+    radial-gradient(ellipse at 95% 70%, #8b3c79 0%, transparent 35%),
+    linear-gradient(180deg, #090515, #211035 55%, #321445);
+  background-attachment: fixed;
 }
 
-/* MEDIA LUNA LIMPIA (SIN CÍRCULO NEGRO) */
-body::before{
-  content:"";
-  position:fixed;
-  width:160px;
-  height:160px;
-  top:8%;
-  right:10%;
-  border-radius:50%;
-  box-shadow: -22px 14px 0 0 #fff5d6;
-  filter: drop-shadow(0 0 20px rgba(255, 245, 214, 0.45));
-  pointer-events:none;
-  z-index:0;
-}
-
-body::after{
-  display:none !important;
-}
-
-[hidden]{
-  display:none!important;
-}
-
-
-/* =========================================
-   ESTRELLAS DEL FONDO
-   ========================================= */
-
-.estrellas-finales{
-
-  position:fixed;
-
-  inset:0;
-
+.fondo-estrellas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .8;
   background-image:
-    radial-gradient(2px 2px at 10% 20%,#fff,transparent),
-    radial-gradient(2px 2px at 25% 35%,#fff,transparent),
-    radial-gradient(1.5px 1.5px at 38% 15%,#fff,transparent),
-    radial-gradient(2px 2px at 55% 28%,#fff,transparent),
-    radial-gradient(1.5px 1.5px at 72% 15%,#fff,transparent),
-    radial-gradient(2px 2px at 85% 45%,#fff,transparent),
-    radial-gradient(1.5px 1.5px at 15% 65%,#fff,transparent),
-    radial-gradient(2px 2px at 42% 75%,#fff,transparent),
-    radial-gradient(1.5px 1.5px at 70% 70%,#fff,transparent),
-    radial-gradient(2px 2px at 92% 80%,#fff,transparent),
-    radial-gradient(1px 1px at 12% 18%,#fffc,transparent),
-    radial-gradient(1px 1px at 45% 30%,#fff9,transparent),
-    radial-gradient(1px 1px at 25% 55%,#fff9,transparent),
-    radial-gradient(1px 1px at 62% 70%,#fffc,transparent);
-
-  animation:
-    brillo
-    3s
-    ease-in-out
-    infinite
-    alternate;
-
-  pointer-events:none;
-
-  z-index:0;
+    radial-gradient(2px 2px at 10% 20%, #ffe5a6, transparent),
+    radial-gradient(2px 2px at 25% 35%, #ffd27a, transparent),
+    radial-gradient(2px 2px at 40% 15%, #fff, transparent),
+    radial-gradient(2px 2px at 55% 28%, #ffd27a, transparent),
+    radial-gradient(2px 2px at 72% 15%, #ffd8ee, transparent),
+    radial-gradient(2px 2px at 85% 45%, #ffe5a6, transparent),
+    radial-gradient(2px 2px at 15% 65%, #ffd8ee, transparent),
+    radial-gradient(2px 2px at 42% 75%, #ffd27a, transparent),
+    radial-gradient(2px 2px at 70% 70%, #fff0d2, transparent),
+    radial-gradient(2px 2px at 92% 80%, #ffd27a, transparent);
+  animation: titilar 4s ease-in-out infinite alternate;
 }
 
-@keyframes brillo{
+@keyframes titilar {
+  to { opacity: .35; }
+}
 
-  to{
-    opacity:.45;
+main {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+#intro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+#intro p {
+  max-width: 600px;
+  font: italic clamp(2rem, 7vw, 3.5rem) 'Fraunces', serif;
+  color: var(--oro);
+  text-shadow: 0 0 25px #080512;
+}
+
+#abrir {
+  font-size: clamp(5rem, 20vw, 8rem);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  animation: latir 1.5s infinite;
+  filter: drop-shadow(0 0 25px #ff6f91aa);
+}
+
+#intro small {
+  margin-top: 15px;
+  opacity: .8;
+}
+
+@keyframes latir {
+  50% { transform: scale(1.1) rotate(-4deg); }
+}
+
+#cuenta {
+  min-height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font: italic clamp(7rem, 30vw, 14rem) 'Fraunces', serif;
+  color: var(--rosa);
+  text-shadow: 0 0 40px var(--rosa);
+}
+
+#fiesta {
+  display: none;
+  padding: 65px 20px 80px;
+}
+
+.fecha {
+  color: #7de2d1;
+  letter-spacing: .2em;
+  font-size: .9rem;
+}
+
+h1 {
+  margin: 20px 0;
+  font: italic clamp(2.5rem, 12vw, 6rem) 'Fraunces', serif;
+  color: var(--rosa);
+  text-shadow: 0 0 30px #ff6f9188;
+}
+
+#mensajePrincipal {
+  max-width: 680px;
+  margin: 30px auto 0;
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+/* CIELO DE ESTRELLAS: MISMO FONDO QUE TODA LA PÁGINA */
+#cieloLizbeth {
+  position: relative;
+  width: 100%;
+  margin: 65px auto 0;
+  padding: 55px 10px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.cielo-intro {
+  max-width: 800px;
+  margin: 0 auto 12px;
+  color: #ffe3ad;
+  font: italic clamp(1.6rem, 5vw, 2.5rem)/1.5 'Fraunces', serif;
+  text-shadow: 0 0 22px #ff6f9140;
+}
+
+.cielo-ayuda {
+  margin: 0 auto 38px;
+  color: #fff4e6;
+  font-size: 1.05rem;
+}
+
+.estrellas {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(4px, 2vw, 20px);
+  max-width: 800px;
+  margin: 0 auto 25px;
+}
+
+.estrella {
+  justify-self: center;
+  width: clamp(48px, 12vw, 110px);
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: var(--oro);
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform .3s, filter .3s;
+}
+
+.estrella:hover,
+.estrella:focus-visible {
+  transform: scale(1.16);
+  outline: 1px solid #ffd27a80;
+  filter: drop-shadow(0 0 15px var(--oro));
+}
+
+.estrella .simbolo {
+  font-size: clamp(2rem, 7vw, 4.5rem);
+  line-height: 1;
+  text-shadow: 0 0 15px #ffd27a, 0 0 30px #ff9e52;
+}
+
+.estrella .numero {
+  color: #ffb3d2;
+  font-size: .95rem;
+}
+
+.estrella.descubierta .simbolo {
+  color: #ffb3d2;
+  text-shadow: 0 0 20px var(--rosa);
+}
+
+/* LOS MENSAJES TAMBIÉN USAN EL FONDO GENERAL */
+#mensajeEstrella {
+  width: min(100%, 680px);
+  min-height: 120px;
+  margin: 20px auto 0;
+  padding: 20px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .4s, transform .4s;
+}
+
+#mensajeEstrella.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#mensajeEstrella h2 {
+  margin: 0 0 12px;
+  color: var(--oro);
+  font: italic clamp(1.5rem, 5vw, 2.2rem) 'Fraunces', serif;
+}
+
+#mensajeEstrella p {
+  margin: 0;
+  color: var(--texto);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+#progresoEstrellas {
+  color: #f6c9e1;
+  margin-top: 15px;
+}
+
+#finalCielo {
+  display: none;
+  max-width: 680px;
+  margin: 30px auto 0;
+  color: #ffe3ad;
+  font: italic clamp(1.4rem, 4vw, 2rem)/1.7 'Fraunces', serif;
+}
+
+#finalCielo.visible {
+  display: block;
+  animation: aparecer 1s ease both;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: scale(.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+#nocheFinal {
+  padding: 70px 20px 100px;
+}
+
+#nocheFinal .corazon {
+  font-size: 5rem;
+  animation: latir 1.5s infinite;
+}
+
+#nocheFinal h2 {
+  color: var(--oro);
+  font: italic clamp(2rem, 7vw, 3.5rem) 'Fraunces', serif;
+}
+
+#nocheFinal p {
+  max-width: 650px;
+  margin: 20px auto;
+  font-size: 1.1rem;
+  line-height: 1.9;
+}
+
+.corazon-flotante {
+  position: fixed;
+  z-index: 20;
+  pointer-events: none;
+  animation: subir 2.8s ease-out forwards;
+}
+
+@keyframes subir {
+  0% { opacity: 0; transform: translateY(0) scale(.6); }
+  20% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-180px) scale(1.2); }
+}
+
+#fuegos {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@media (max-width: 600px) {
+  #cieloLizbeth {
+    padding: 45px 5px;
+    margin-top: 35px;
   }
 
-}
-
-
-/* =========================================
-   CANVAS DE FUEGOS ARTIFICIALES
-   ========================================= */
-
-#fx{
-
-  position:fixed;
-
-  inset:0;
-
-  z-index:10;
-
-  pointer-events:none;
-}
-
-
-/* =========================================
-   CONTENIDO PRINCIPAL
-   ========================================= */
-
-main{
-
-  position:relative;
-
-  z-index:2;
-
-  min-height:100vh;
-
-  display:grid;
-
-  place-items:center;
-
-  text-align:center;
-
-  padding:30px 20px;
-}
-
-
-/* =========================================
-   INTRODUCCIÓN
-   ========================================= */
-
-#intro p{
-
-  font-family:
-    Fraunces,
-    Georgia,
-    serif;
-
-  font-style:italic;
-
-  font-size:
-    clamp(1.6rem,6vw,2.4rem);
-
-  margin:
-    0 0 28px;
-
-  color:var(--oro);
-}
-
-
-#abrir{
-
-  background:none;
-
-  border:0;
-
-  cursor:pointer;
-
-  font-size:
-    clamp(5rem,22vw,8rem);
-
-  line-height:1;
-
-  padding:12px;
-
-  border-radius:50%;
-
-  animation:
-    late
-    1.6s
-    ease-in-out
-    infinite;
-
-  filter:
-    drop-shadow(
-      0 0 28px #ff6f91aa
-    );
-}
-
-
-#abrir:focus-visible{
-
-  outline:
-    3px solid
-    var(--oro);
-
-  outline-offset:6px;
-}
-
-
-@keyframes late{
-
-  50%{
-
-    transform:
-      scale(1.1)
-      rotate(-4deg);
-
+  .estrellas {
+    gap: 0;
   }
 
-}
-
-
-#intro small{
-
-  display:block;
-
-  margin-top:18px;
-
-  font-weight:300;
-
-  opacity:.75;
-}
-
-
-/* =========================================
-   CUENTA REGRESIVA
-   ========================================= */
-
-#cd{
-
-  font-family:
-    Fraunces,
-    Georgia,
-    serif;
-
-  font-style:italic;
-
-  font-size:
-    clamp(6rem,30vw,14rem);
-
-  color:var(--rosa);
-
-  text-shadow:
-    0 0 40px #ff6f91;
-}
-
-
-#cd.pop{
-
-  animation:
-    pop
-    .95s
-    ease-out;
-}
-
-
-@keyframes pop{
-
-  0%{
-
-    transform:scale(2.2);
-
-    opacity:0;
-
+  .estrella {
+    width: clamp(43px, 17vw, 70px);
   }
 
-  25%{
-    opacity:1;
+  #mensajeEstrella {
+    padding: 20px 5px;
   }
+}
 
-  100%{
-
-    transform:scale(.7);
-
-    opacity:.2;
-
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
   }
-
 }
-
-
-/* =========================================
-   FIESTA
-   ========================================= */
-
-#fiesta{
-
-  width:100%;
-
-  max-width:850px;
-
-  padding:
-    30px
-    10px
-    70px;
-}
-
-
-.fecha{
-
-  margin:
-    0 0 14px;
-
-  font-weight:300;
-
-  letter-spacing:.14em;
-
-  color:var(--menta);
-
-  opacity:0;
-
-  transition:
-    opacity
-    1.2s
-    1s;
-}
-
-
-h1{
-
-  margin:0;
-
-  font-family:
-    Fraunces,
-    Georgia,
-    serif;
-
-  font-style:italic;
-
-  font-weight:600;
-}
-
-
-.l{
-
-  display:block;
-}
-
-
-#l1{
-
-  font-size:
-    clamp(1.7rem,6.5vw,2.8rem);
-
-  color:var(--oro);
-}
-
-
-#l2{
-
-  font-size:
-    clamp(3.4rem,17vw,9rem);
-
-  line-height:1.05;
-
-  color:var(--rosa);
-
-  text-shadow:
-    0 0 34px #ff6f9199;
-
-  overflow-wrap:anywhere;
-}
-
-
-.l span{
-
-  display:inline-block;
-
-  white-space:pre;
-
-  opacity:0;
-
-  transform:
-    translateY(50px)
-    rotate(8deg)
-    scale(.6);
-
-  transition:
-    opacity .6s,
-    transform .9s
-    cubic-bezier(.2,1.4,.4,1);
-
-  transition-delay:
-    calc(var(--i)*70ms);
-}
-
-
-.fiesta .l span{
-
-  opacity:1;
-
-  transform:none;
-}
-
-
-.fiesta .fecha{
-
-  opacity:1;
-}
-
-
-/* =========================================
-   MENSAJE PRINCIPAL
-   ========================================= */
-
-#msg{
-
-  width:100%;
-
-  max-width:650px;
-
-  min-height:7em;
-
-  margin:
-    35px
-    auto
-    0;
-
-  padding:
-    0
-    8px;
-
-  line-height:1.8;
-
-  font-weight:300;
-
-  font-size:
-    clamp(1rem,3.8vw,1.25rem);
-
-  white-space:pre-line;
-
-  overflow-wrap:anywhere;
-}
-
-
-#msg.escribiendo::after{
-
-  content:"";
-
-  display:inline-block;
-
-  width:2px;
-
-  height:1.1em;
-
-  margin-left:3px;
-
-  vertical-align:text-bottom;
-
-  background:var(--oro);
-
-  animation:
-    brillo
-    .5s
-    infinite
-    alternate;
-}
-
-
-/* =========================================
-   BOTONES ROMÁNTICOS
-   ========================================= */
-
-.boton-romantico{
-
-  display:inline-block;
-
-  margin-top:35px;
-
-  padding:
-    14px
-    25px;
-
-  border:
-    1px solid
-    #ffffff35;
-
-  border-radius:50px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ff6f9140,
-      #ffd27a25
-    );
-
-  color:var(--texto);
-
-  font-family:
-    Outfit,
-    sans-serif;
-
-  font-size:1rem;
-
-  cursor:pointer;
-
-  box-shadow:
-    0 0 25px #ff6f9125;
-
-  transition:
-    transform .3s,
-    box-shadow .3s,
-    background .3s;
-}
-
-
-.boton-romantico:hover{
-
-  transform:
-    translateY(-4px)
-    scale(1.03);
-
-  box-shadow:
-    0 0 35px #ff6f9160;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ff6f9160,
-      #ffd27a40
-    );
-}
-
-
-/* =========================================
-   SEGUNDA SORPRESA
-   ========================================= */
-
-#segunda{
-
-  width:100%;
-
-  max-width:700px;
-
-  margin:
-    90px
-    auto
-    0;
-
-  padding:
-    55px
-    20px;
-
-  border-radius:30px;
-
-  background:
-    radial-gradient(
-      circle at top,
-      #ff6f9130,
-      transparent 65%
-    );
-
-  border:
-    1px solid
-    #ffffff18;
-
-  box-shadow:
-    0 15px 60px #00000030;
-}
-
-
-#espera{
-
-  font-family:
-    Fraunces,
-    Georgia,
-    serif;
-
-  font-style:italic;
-
-  font-size:
-    clamp(1.7rem,6vw,2.7rem);
-
-  color:var(--rosa);
-
-  text-shadow:
-    0 0 25px #ff6f9166;
-
-  margin:0;
-}
-
-
-#textoSegunda{
-
-  max-width:580px;
-
-  margin:
-    25px
-    auto
-    0;
-
-  line-height:1.8;
-
-  font-weight:300;
-
-  font-size:1.05rem;
-
-  opacity:0;
-
-  transform:
-    translateY(20px);
-
-  transition:
-    opacity 1s,
-    transform 1s;
-}
-
-
-#textoSegunda.mostrar{
-
-  opacity:1;
-
-  transform:none;
-}
-
-
-/* =========================================
-   MENSAJE FINAL
-   ========================================= */
-
-#nocheFinal{
-
-  position:relative;
-
-  width:100vw;
-
-  margin-top:90px;
-
-  margin-left:
-    calc(50% - 50vw);
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-}
-
-
-.contenido-final{
-
-  position:relative;
-
-  z-index:2;
-
-  max-width:720px;
-
-  padding:
-    80px
-    25px;
-
-  text-align:center;
-}
-
-
-.corazon-grande{
-
-  font-size:
-    clamp(4rem,15vw,7rem);
-
-  filter:
-    drop-shadow(
-      0 0 30px #ff6f91
-    );
-
-  animation:
-    latido-corazon
-    1.7s
-    ease-in-out
-    infinite;
-}
-
-
-@keyframes latido-corazon{
-
-  50%{
-
-    transform:
-      scale(1.12);
-
-  }
-
-}
-
-
-.contenido-final h2{
-
-  margin:
-    20px
-    0;
-
-  font-family:
-    Fraunces,
-    Georgia,
-    serif;
-
-  font-style:italic;
-
-  font-size:
-    clamp(2rem,8vw,4rem);
-
-  color:var(--oro);
-}
-
-
-.contenido-final p{
-
-  line-height:1.9;
-
-  font-size:
-    clamp(1rem,4vw,1.2rem);
-
-  font-weight:300;
-}
-
-
-/* =========================================
-   CORAZONES FLOTANTES
-   ========================================= */
-
-.corazon-flotante{
-
-  position:fixed;
-
-  left:0;
-
-  top:0;
-
-  z-index:20;
-
-  pointer-events:none;
-
-  font-size:
-    var(--size);
-
-  transform:
-    translate(
-      var(--x),
-      var(--y)
-    );
-
-  animation:
-    subir-corazon
-    var(--duracion)
-    ease-out
-    forwards;
-}
-
-
-@keyframes subir-corazon{
-
-  0%{
-
-    opacity:0;
-
-    transform:
-      translate(
-        var(--x),
-        var(--y)
-      )
-      scale(.4)
-      rotate(0deg);
-
-  }
-
-  15%{
-    opacity:1;
-  }
-
-  100%{
-
-    opacity:0;
-
-    transform:
-      translate(
-        calc(var(--x) + var(--dx)),
-        calc(var(--y) - 220px)
-      )
-      scale(1.1)
-      rotate(var(--rot));
-
-  }
-
-}
-
-
-/* =========================================
-   GLOBOS
-   ========================================= */
-
-.globo{
-
-  position:fixed;
-
-  bottom:-150px;
-
-  left:var(--x);
-
-  width:54px;
-
-  height:68px;
-
-  border-radius:
-    50% 50% 48% 48% /
-    58% 58% 42% 42%;
-
-  background:var(--c);
-
-  opacity:.88;
-
-  z-index:1;
-
-  pointer-events:none;
-
-  animation:
-    sube
-    var(--d)
-    linear
-    var(--r)
-    infinite;
-}
-
-
-.globo::after{
-
-  content:"";
-
-  position:absolute;
-
-  left:50%;
-
-  top:100%;
-
-  width:1px;
-
-  height:58px;
-
-  background:#fff6;
-}
-
-
-@keyframes sube{
-
-  to{
-
-    transform:
-      translate(
-        var(--dx),
-        -135vh
-      );
-
-  }
-
-}
-
-
-/* =========================================
-   CELULARES
-   ========================================= */
-
-@media(max-width:600px){
-
-  main{
-
-    padding:
-      25px
-      15px;
-
-  }
-
-
-  #fiesta{
-
-    padding-top:20px;
-
-  }
-
-
-  #msg{
-
-    font-size:1.05rem;
-
-    line-height:1.75;
-
-    padding:
-      0
-      10px;
-
-  }
-
-
-  #segunda{
-
-    margin-top:70px;
-
-    padding:
-      45px
-      15px;
-
-  }
-
-
-  body::before{
-
-    width:110px;
-
-    height:110px;
-
-    right:8%;
-
-    box-shadow: -16px 10px 0 0 #fff5d6;
-
-  }
-
-
-  .contenido-final{
-
-    padding:
-      70px
-      20px;
-
-  }
-
-}
-
-
-/* =========================================
-   REDUCIR ANIMACIONES
-   ========================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-  #abrir,
-  .estrellas-finales,
-  .corazon-grande{
-
-    animation:none;
-
-  }
-
-
-  .globo{
-
-    animation-duration:30s;
-
-  }
-
-}
-
 </style>
 </head>
 
-
 <body>
-
-<div class="estrellas-finales"></div>
-<canvas id="fx"></canvas>
-
+<div class="fondo-estrellas"></div>
+<canvas id="fuegos"></canvas>
 
 <main>
-
-
-  <!-- =====================================
-        INTRODUCCIÓN
-        ===================================== -->
-
   <section id="intro">
-
-    <p>
-      Hay algo esperándote...
-    </p>
-
-    <button
-      id="abrir"
-      aria-label="Abrir el regalo">
-
-      🎁
-
-    </button>
-
-    <small>
-      Toca el regalo para abrirlo ❤️
-    </small>
-
+    <p>Hay algo esperándote...</p>
+    <button id="abrir" aria-label="Abrir el regalo">🎁</button>
+    <small>Toca el regalo para abrirlo ❤️</small>
   </section>
 
+  <section id="cuenta" aria-live="polite"></section>
 
-  <!-- =====================================
-        CUENTA REGRESIVA
-        ===================================== -->
+  <section id="fiesta">
+    <p class="fecha">30 DE OCTUBRE</p>
+    <h1>¡Feliz cumpleaños, Lizbeth! ❤️</h1>
 
-  <div
-    id="cd"
-    aria-live="assertive">
-  </div>
-
-
-  <!-- =====================================
-        FIESTA Y MENSAJE PRINCIPAL
-        ===================================== -->
-
-  <section
-    id="fiesta"
-    hidden>
-
-
-    <p class="fecha">
-      31 DE OCTUBRE
-    </p>
-
-
-    <h1>
-
-      <span
-        class="l"
-        id="l1">
-      </span>
-
-      <span
-        class="l"
-        id="l2">
-      </span>
-
-    </h1>
-
-
-    <p id="msg"></p>
-
-
-    <!-- =====================================
-          SEGUNDA SORPRESA
-          ===================================== -->
-
-    <section id="segunda">
-
-      <h2 id="espera">
-        Espera... todavía falta algo 👀
-      </h2>
-
-
-      <button
-        class="boton-romantico"
-        id="btnSorpresa">
-
-        🎁 Abrir la segunda sorpresa
-
-      </button>
-
-
-      <p id="textoSegunda">
-
-        Porque una sola sorpresa no era suficiente
-        para alguien tan especial como tú. ❤️
-
-        <br><br>
-
-        Espero que cuando veas esto sonrías,
-        porque esa sonrisa también es una de las
-        cosas bonitas que me gusta ver en ti. 🥺💕
-
-      </p>
-      <button
-  class="boton-romantico"
-  id="btnCerrarSorpresa"
-  hidden>
-  💗 Cerrar sorpresa
-</button>
-
-    </section>
-
-
-    <!-- =====================================
-          MENSAJE FINAL
-          ===================================== -->
-
-    <section id="nocheFinal">
-
-
-      <div class="contenido-final">
-
-        <div class="corazon-grande">
-          ❤️
-        </div>
-
-
-        <h2>
-          Para ti, Lizbeth
-        </h2>
-
-
-        <p>
-
-          Gracias por existir y por ser una persona
-          tan especial. 💖
-
-          <br><br>
-
-          Deseo que nunca te falten motivos para
-          sonreír, personas que te quieran y sueños
-          por cumplir.
-
-          <br><br>
-
-          Y espero que este nuevo año de tu vida
-          esté lleno de momentos hermosos,
-          aventuras, felicidad y muchas razones
-          para sentirte orgullosa de ti.
-
-          <br><br>
-
-          <strong>
-            Feliz cumpleaños, Lizbeth. ❤️
-          </strong>
-
-        </p>
-
-      </div>
-
-    </section>
-
-
-  </section>
-
-
-</main>
-
-
-<script>
-
-
-/* =========================================
-   DATOS
-   ========================================= */
-
-const NOMBRE = 'Lizbeth';
-
-
-const MENSAJE = `¡Feliz cumpleaños, preciosa! ❤️🎂
+    <p id="mensajePrincipal">¡Feliz cumpleaños, preciosa! ❤️🎂
 
 Espero de todo corazón que hoy tengas un día muy bonito, rodeada de mucho cariño, sonrisas y personas que te quieren.
 
@@ -1178,919 +366,220 @@ Que la vida te devuelva todo lo bonito que das a los demás, porque eres una per
 
 Te quiero muchísimo y espero que este nuevo año sea uno de los más bonitos para ti.
 
-¡Disfruta muchísimo tu día! 🎉💕`;
+¡Disfruta muchísimo tu día! 🎉💕</p>
 
+    <section id="cieloLizbeth">
+      <p class="cielo-intro">Hay cinco estrellas que guardan algo que quiero decirte...</p>
+      <p class="cielo-ayuda">Elige una estrella y descubre tu mensaje. 💗</p>
 
-/* =========================================
-   CONFIGURACIÓN
-   ========================================= */
+      <div class="estrellas" aria-label="Cinco estrellas con mensajes">
+        <button class="estrella" type="button" data-estrella="0" aria-label="Descubrir estrella 1">
+          <span class="simbolo">★</span><span class="numero">1</span>
+        </button>
+        <button class="estrella" type="button" data-estrella="1" aria-label="Descubrir estrella 2">
+          <span class="simbolo">★</span><span class="numero">2</span>
+        </button>
+        <button class="estrella" type="button" data-estrella="2" aria-label="Descubrir estrella 3">
+          <span class="simbolo">★</span><span class="numero">3</span>
+        </button>
+        <button class="estrella" type="button" data-estrella="3" aria-label="Descubrir estrella 4">
+          <span class="simbolo">★</span><span class="numero">4</span>
+        </button>
+        <button class="estrella" type="button" data-estrella="4" aria-label="Descubrir estrella 5">
+          <span class="simbolo">★</span><span class="numero">5</span>
+        </button>
+      </div>
 
-const $ = id =>
-  document.getElementById(id);
+      <div id="mensajeEstrella" aria-live="polite">
+        <h2></h2>
+        <p></p>
+      </div>
 
+      <p id="progresoEstrellas">Has descubierto 0 de 5 estrellas ✨</p>
 
-const reducir =
-  matchMedia(
-    '(prefers-reduced-motion: reduce)'
-  ).matches;
+      <p id="finalCielo">Has iluminado todo este cielo, pero hay algo que quiero que recuerdes: mereces todas las cosas bonitas que la vida pueda regalarte. ❤️</p>
+    </section>
 
+    <section id="nocheFinal">
+      <div class="corazon">❤️</div>
+      <h2>Para ti, Lizbeth</h2>
+      <p>
+        Gracias por existir y por ser una persona tan especial. 💖<br><br>
+        Deseo que nunca te falten motivos para sonreír, personas que te quieran y sueños por cumplir.<br><br>
+        Espero que este nuevo año de tu vida esté lleno de momentos hermosos, aventuras, felicidad y muchas razones para sentirte orgullosa de ti.<br><br>
+        <strong>Feliz cumpleaños, Lizbeth. ❤️</strong>
+      </p>
+    </section>
+  </section>
+</main>
 
-const colores = [
+<script>
+const abrir = document.getElementById('abrir');
+const intro = document.getElementById('intro');
+const cuenta = document.getElementById('cuenta');
+const fiesta = document.getElementById('fiesta');
+const canvas = document.getElementById('fuegos');
+const ctx = canvas.getContext('2d');
 
-  '#ffd27a',
-  '#ff6f91',
-  '#7de2d1',
-  '#fff4e6',
-  '#b48cff'
+let ancho = 0;
+let alto = 0;
+let iniciado = false;
+let particulas = [];
 
+function ajustarCanvas() {
+  ancho = canvas.width = window.innerWidth;
+  alto = canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', ajustarCanvas);
+ajustarCanvas();
+
+function lanzarFuegos(x = Math.random() * ancho, y = Math.random() * alto * .45 + 50) {
+  const colores = ['#ffd27a', '#ff6f91', '#fff4e6', '#b48cff', '#7de2d1'];
+
+  for (let i = 0; i < 65; i++) {
+    const angulo = Math.random() * Math.PI * 2;
+    const velocidad = Math.random() * 3.5 + 1;
+
+    particulas.push({
+      x, y,
+      vx: Math.cos(angulo) * velocidad,
+      vy: Math.sin(angulo) * velocidad,
+      vida: 1,
+      color: colores[Math.floor(Math.random() * colores.length)]
+    });
+  }
+}
+
+function animarFuegos() {
+  ctx.clearRect(0, 0, ancho, alto);
+
+  particulas = particulas.filter(p => p.vida > 0);
+  particulas.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+    p.vx *= .985;
+    p.vy *= .985;
+    p.vy += .025;
+    p.vida -= .014;
+
+    ctx.globalAlpha = Math.max(p.vida, 0);
+    ctx.fillStyle = p.color;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(animarFuegos);
+}
+animarFuegos();
+
+function crearCorazones(cantidad = 12, x = innerWidth / 2, y = innerHeight / 2) {
+  const simbolos = ['❤️', '💕', '💖', '💗', '💘'];
+
+  for (let i = 0; i < cantidad; i++) {
+    const corazon = document.createElement('span');
+    corazon.className = 'corazon-flotante';
+    corazon.textContent = simbolos[Math.floor(Math.random() * simbolos.length)];
+    corazon.style.left = (x + (Math.random() - .5) * 180) + 'px';
+    corazon.style.top = (y + (Math.random() - .5) * 50) + 'px';
+    corazon.style.fontSize = (18 + Math.random() * 25) + 'px';
+    document.body.appendChild(corazon);
+    setTimeout(() => corazon.remove(), 3000);
+  }
+}
+
+abrir.addEventListener('click', () => {
+  intro.style.display = 'none';
+  cuenta.style.display = 'flex';
+
+  let numero = 3;
+  cuenta.textContent = numero;
+
+  const temporizador = setInterval(() => {
+    numero--;
+
+    if (numero > 0) {
+      cuenta.textContent = numero;
+    } else {
+      clearInterval(temporizador);
+      cuenta.style.display = 'none';
+      fiesta.style.display = 'block';
+      iniciado = true;
+
+      crearCorazones(20);
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => lanzarFuegos(), i * 400);
+      }
+
+      setInterval(() => {
+        if (iniciado) lanzarFuegos();
+      }, 1800);
+    }
+  }, 1000);
+});
+
+const mensajesCielo = [
+  {
+    titulo: 'Tu sonrisa 💗',
+    texto: 'Tienes esa manera de hacer que hasta mis días más normales se vuelvan especiales.'
+  },
+  {
+    titulo: 'Tu forma de ser 🌷',
+    texto: 'Lo bonito de ti no está solamente en cómo te ves, sino también en la persona que eres.'
+  },
+  {
+    titulo: 'Tus pequeños detalles 🥹',
+    texto: 'A veces las cosas más pequeñas que haces son las que más bonito se quedan en mi corazón.'
+  },
+  {
+    titulo: 'Lo que me haces sentir ❤️',
+    texto: 'Hay personas que llegan y, sin darse cuenta, hacen que todo se sienta un poquito más bonito.'
+  },
+  {
+    titulo: 'Mi deseo para ti 🌌',
+    texto: 'Si pudiera pedir un deseo mirando este cielo, sería que la vida te regale muchísimas razones para sonreír y que sigas creando recuerdos bonitos.'
+  }
 ];
 
+const descubiertas = new Set();
+const botonesEstrella = document.querySelectorAll('.estrella');
 
-const azar = a =>
-  a[
-    Math.random() * a.length | 0
-  ];
+botonesEstrella.forEach(boton => {
+  boton.addEventListener('click', () => {
+    const indice = Number(boton.dataset.estrella);
+    const mensaje = mensajesCielo[indice];
 
+    descubiertas.add(indice);
+    boton.classList.add('descubierta');
 
-/* =========================================
-   LETRAS DEL TÍTULO
-   ========================================= */
+    const tarjeta = document.getElementById('mensajeEstrella');
+    tarjeta.classList.remove('visible');
 
-function letras(el,txt,base){
+    tarjeta.querySelector('h2').textContent = mensaje.titulo;
+    tarjeta.querySelector('p').textContent = mensaje.texto;
 
-  [...txt].forEach((ch,i)=>{
+    requestAnimationFrame(() => tarjeta.classList.add('visible'));
 
-    const s =
-      document.createElement('span');
+    document.getElementById('progresoEstrellas').textContent =
+      `Has descubierto ${descubiertas.size} de 5 estrellas ✨`;
 
-    s.textContent =
-      ch;
-
-    s.style.setProperty(
-      '--i',
-      base+i
-    );
-
-    el.appendChild(s);
-
-  });
-
-}
-
-
-letras(
-  $('l1'),
-  '¡Feliz cumpleaños!',
-  0
-);
-
-
-letras(
-  $('l2'),
-  NOMBRE,
-  18
-);
-
-
-document.title =
-  'Para ' + NOMBRE;
-
-
-/* =========================================
-   CANVAS
-   ========================================= */
-
-const c =
-  $('fx');
-
-const x =
-  c.getContext('2d');
-
-
-let W,
-    H,
-    parts=[],
-    rockets=[],
-    conf=[],
-    iniciado=false;
-
-
-function medir(){
-
-  W =
-    c.width =
-    innerWidth;
-
-  H =
-    c.height =
-    innerHeight;
-
-}
-
-
-addEventListener(
-  'resize',
-  medir
-);
-
-
-medir();
-
-
-/* =========================================
-   LÍNEAS
-   ========================================= */
-
-function linea(
-  x1,
-  y1,
-  x2,
-  y2,
-  col,
-  ancho
-){
-
-  x.strokeStyle =
-    col;
-
-  x.lineWidth =
-    ancho;
-
-  x.lineCap =
-    'round';
-
-  x.beginPath();
-
-  x.moveTo(
-    x1,
-    y1
-  );
-
-  x.lineTo(
-    x2,
-    y2
-  );
-
-  x.stroke();
-
-}
-
-
-/* =========================================
-   COHETES
-   ========================================= */
-
-function cohete(){
-
-  rockets.push({
-
-    x:
-      W *
-      (
-        .12 +
-        Math.random()*.76
-      ),
-
-    y:H,
-
-    vy:
-      -(
-        H*.012 +
-        Math.random()*4
-      ),
-
-    ty:
-      H *
-      (
-        .12 +
-        Math.random()*.38
-      ),
-
-    col:
-      azar(colores)
-
-  });
-
-}
-
-
-/* =========================================
-   FUEGOS ARTIFICIALES
-   ========================================= */
-
-function estallido(
-  px,
-  py,
-  col
-){
-
-  const n =
-    70 +
-    Math.random()*40 | 0;
-
-  const v =
-    2 +
-    Math.random()*2.5;
-
-
-  for(
-    let i=0;
-    i<n;
-    i++
-  ){
-
-    const a =
-      Math.PI*2*i/n;
-
-    const s =
-      v *
-      (
-        .6 +
-        Math.random()*.7
-      );
-
-
-    parts.push({
-
-      x:px,
-
-      y:py,
-
-      px,
-
-      py,
-
-      vx:
-        Math.cos(a)*s,
-
-      vy:
-        Math.sin(a)*s,
-
-      life:1,
-
-      col
-
-    });
-
-  }
-
-}
-
-
-/* =========================================
-   CONFETI
-   ========================================= */
-
-function confeti(){
-
-  for(
-    let i=0;
-    i<
-    (
-      reducir
-      ? 30
-      : 110
-    );
-    i++
-  ){
-
-    conf.push({
-
-      x:
-        Math.random()*W,
-
-      y:
-        -20 -
-        Math.random()*H*.5,
-
-      vy:
-        1 +
-        Math.random()*2.5,
-
-      t:
-        Math.random()*6,
-
-      r:
-        Math.random()*6,
-
-      vr:
-        (
-          Math.random()-.5
-        )*.2,
-
-      col:
-        azar(colores)
-
-    });
-
-  }
-
-}
-
-
-/* =========================================
-   ANIMACIÓN DEL CANVAS
-   ========================================= */
-
-function bucle(){
-
-  x.clearRect(
-    0,
-    0,
-    W,
-    H
-  );
-
-
-  x.globalAlpha=1;
-
-
-  rockets =
-    rockets.filter(r=>{
-
-      const py =
-        r.y;
-
-      r.y +=
-        r.vy;
-
-
-      linea(
-        r.x,
-        py,
-        r.x,
-        r.y,
-        r.col,
-        3
-      );
-
-
-      if(
-        r.y<=r.ty
-      ){
-
-        estallido(
-          r.x,
-          r.y,
-          r.col
-        );
-
-        return false;
-
+    if (descubiertas.size === 5) {
+      document.getElementById('finalCielo').classList.add('visible');
+      const rect = boton.getBoundingClientRect();
+      crearCorazones(18, rect.left + rect.width / 2, rect.top + rect.height / 2);
+      for (let i = 0; i < 3; i++) {
+        setTimeout(() => lanzarFuegos(), i * 300);
       }
-
-
-      return true;
-
-    });
-
-
-  parts =
-    parts.filter(p=>{
-
-      p.px =
-        p.x;
-
-      p.py =
-        p.y;
-
-
-      p.vx *=
-        .985;
-
-      p.vy =
-        p.vy*.985 +
-        .045;
-
-
-      p.x +=
-        p.vx;
-
-      p.y +=
-        p.vy;
-
-
-      p.life -=
-        .011;
-
-
-      x.globalAlpha =
-        Math.max(
-          p.life,
-          0
-        );
-
-
-      linea(
-        p.px,
-        p.py,
-        p.x,
-        p.y,
-        p.col,
-        2.2
-      );
-
-
-      return p.life>0;
-
-    });
-
-
-  x.globalAlpha=1;
-
-
-  conf =
-    conf.filter(f=>{
-
-      f.t +=
-        .04;
-
-      f.r +=
-        f.vr;
-
-      f.y +=
-        f.vy;
-
-      f.x +=
-        Math.sin(f.t)*1.2;
-
-
-      x.save();
-
-
-      x.translate(
-        f.x,
-        f.y
-      );
-
-
-      x.rotate(
-        f.r
-      );
-
-
-      x.fillStyle =
-        f.col;
-
-
-      x.fillRect(
-        -4,
-        -6,
-        8,
-        12
-      );
-
-
-      x.restore();
-
-
-      return f.y<
-        H+20;
-
-    });
-
-
-  requestAnimationFrame(
-    bucle
-  );
-
-}
-
-
-/* =========================================
-   GLOBOS
-   ========================================= */
-
-function globos(){
-
-  if(reducir)
-    return;
-
-
-  for(
-    let i=0;
-    i<14;
-    i++
-  ){
-
-    const g =
-      document.createElement(
-        'div'
-      );
-
-
-    g.className =
-      'globo';
-
-
-    g.style.cssText =
-
-      `--x:${Math.random()*94}vw;
-        --c:${azar(colores)};
-        --d:${9+Math.random()*7}s;
-        --r:${Math.random()*6}s;
-        --dx:${(Math.random()-.5)*90}px`;
-
-
-    document.body.appendChild(
-      g
-    );
-
-  }
-
-}
-
-
-/* =========================================
-   ESCRIBIR MENSAJE
-   ========================================= */
-
-function escribir(){
-
-  const m =
-    $('msg');
-
-  let i=0;
-
-
-  m.classList.add(
-    'escribiendo'
-  );
-
-
-  const t =
-    setInterval(()=>{
-
-      m.textContent =
-        MENSAJE.slice(
-          0,
-          ++i
-        );
-
-
-      if(
-        i>=MENSAJE.length
-      ){
-
-        clearInterval(t);
-
-        m.classList.remove(
-          'escribiendo'
-        );
-
-      }
-
-    },25);
-
-}
-
-
-/* =========================================
-   CORAZONES FLOTANTES
-   ========================================= */
-
-function corazones(
-  cantidad=10,
-  xInicial=innerWidth/2,
-  yInicial=innerHeight/2
-){
-
-  const simbolos=[
-    '❤️',
-    '💕',
-    '💖',
-    '💗',
-    '💘',
-    '🌹'
-  ];
-
-
-  for(
-    let i=0;
-    i<cantidad;
-    i++
-  ){
-
-    const corazon =
-      document.createElement(
-        'span'
-      );
-
-
-    corazon.className =
-      'corazon-flotante';
-
-
-    corazon.textContent =
-      azar(simbolos);
-
-
-    corazon.style.setProperty(
-      '--x',
-      `${xInicial}px`
-    );
-
-
-    corazon.style.setProperty(
-      '--y',
-      `${yInicial}px`
-    );
-
-
-    corazon.style.setProperty(
-      '--dx',
-      `${(Math.random()-.5)*180}px`
-    );
-
-
-    corazon.style.setProperty(
-      '--size',
-      `${18+Math.random()*25}px`
-    );
-
-
-    corazon.style.setProperty(
-      '--duracion',
-      `${1.5+Math.random()*1.5}s`
-    );
-
-
-    corazon.style.setProperty(
-      '--rot',
-      `${(Math.random()-.5)*50}deg`
-    );
-
-
-    document.body.appendChild(
-      corazon
-    );
-
-
-    setTimeout(
-      ()=>corazon.remove(),
-      3500
-    );
-
-  }
-
-}
-
-
-/* =========================================
-   INICIAR FIESTA
-   ========================================= */
-
-function empezar(){
-
-  iniciado=true;
-
-
-  $('fiesta').hidden=
-    false;
-
-
-  requestAnimationFrame(()=>{
-
-    requestAnimationFrame(()=>{
-
-      document.body.classList.add(
-        'fiesta'
-      );
-
-    });
-
+    }
   });
+});
 
-
-  /* Fuegos iniciales */
-
-  for(
-    let i=0;
-    i<6;
-    i++
-  ){
-
-    setTimeout(
-      cohete,
-      i*260
-    );
-
+document.addEventListener('click', evento => {
+  if (iniciado && !evento.target.closest('button')) {
+    lanzarFuegos(evento.clientX, evento.clientY);
   }
-
-
-  /* Confeti */
-
-  confeti();
-
-
-  /* Fuegos continuos */
-
-  setInterval(
-    cohete,
-    reducir
-      ? 2200
-      : 800
-  );
-
-
-  /* Más confeti */
-
-  setInterval(
-    confeti,
-    7000
-  );
-
-
-  /* Globos */
-
-  globos();
-
-
-  /* Mensaje */
-
-  setTimeout(
-    escribir,
-    2400
-  );
-
-
-  /* Corazones */
-
-  setTimeout(
-    ()=>{
-      corazones(
-        18,
-        innerWidth/2,
-        innerHeight/2
-      );
-    },
-    2200
-  );
-
-}
-
-
-/* =========================================
-   ABRIR REGALO
-   ========================================= */
-
-$('abrir').onclick=()=>{
-
-  corazones(
-    15,
-    innerWidth/2,
-    innerHeight/2
-  );
-
-
-  $('intro').hidden=
-    true;
-
-
-  let n=3;
-
-
-  const cd =
-    $('cd');
-
-
-  const tic=()=>{
-
-    if(n>0){
-
-      cd.textContent=
-        n--;
-
-
-      cd.classList.remove(
-        'pop'
-      );
-
-
-      void cd.offsetWidth;
-
-
-      cd.classList.add(
-        'pop'
-      );
-
-
-      setTimeout(
-        tic,
-        950
-      );
-
-    }else{
-
-      cd.textContent=
-        '';
-
-
-      empezar();
-
-    }
-
-  };
-
-
-  tic();
-
-};
-
-
-/* =========================================
-   SEGUNDA SORPRESA
-   ========================================= */
-
-$('btnSorpresa').onclick=e=>{
-
-  const rect =
-    e.currentTarget
-    .getBoundingClientRect();
-
-
-  /* Corazones desde el botón */
-
-  corazones(
-    28,
-    rect.left +
-    rect.width/2,
-    rect.top +
-    rect.height/2
-  );
-
-
-  /* Mostrar mensaje */
-
-$('textoSegunda')
-  .classList
-  .add('mostrar');
-
-$('btnCerrarSorpresa').hidden = false;
-  
-  /* Cambiar botón */
-
-  e.currentTarget.textContent =
-    '💖 Sorpresa abierta';
-
-
-  e.currentTarget.disabled =
-    true;
-
-
-  e.currentTarget.style.opacity =
-    '.7';
-
-};
-
-
-/* =========================================
-   TOCAR LA PANTALLA
-   ========================================= */
-
-document.addEventListener(
-  'pointerdown',
-  e=>{
-
-    if(
-      iniciado &&
-      !e.target.closest('button')
-    ){
-
-      estallido(
-        e.clientX,
-        e.clientY,
-        azar(colores)
-      );
-
-    }
-
-  }
-);
-
-
-/* =========================================
-   INICIAR ANIMACIÓN
-   ========================================= */
-$('btnCerrarSorpresa').onclick=()=>{
-
-  $('textoSegunda')
-    .classList
-    .remove('mostrar');
-
-  $('btnCerrarSorpresa').hidden = true;
-
-  $('btnSorpresa').textContent =
-    '🎁 Abrir la segunda sorpresa';
-
-  $('btnSorpresa').disabled = false;
-
-  $('btnSorpresa').style.opacity = '1';
-
-};
-bucle();
-
+});
 </script>
-
 </body>
 </html>
